@@ -13,6 +13,7 @@ import lombok.Data;
 @ApiModel(value = "自定义全局异常类")
 public class GmallException extends RuntimeException {
 
+//    @ApiModelProperty(value = "异常状态码")
     @ApiModelProperty(value = "异常状态码")
     private Integer code;
 
