@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.gmall.product.mapper.SpuSaleAttrMapper">
+
+    <resultMap id="spuSaleAttrMap" type="com.atguigu.gmall.model.product.SpuSaleAttr" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="spuSaleAttrValueList" ofType="com.atguigu.gmall.model.product.SpuSaleAttrValue"
+                    autoMapping="true">
+            <id property="id" column="spu_sale_attr_value_id"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectSpuSaleAttrBySpuId" resultMap="spuSaleAttrMap">
+        SELECT ta.id,
+               ta.spu_id,
+               ta.sale_attr_name,
+               ta.base_sale_attr_id,
+               tb.id as spu_sale_attr_value_id,
+               tb.sale_attr_value_name
+        FROM spu_sale_attr ta
+                 INNER JOIN spu_sale_attr_value tb ON ta.spu_id = tb.spu_id
+            AND ta.base_sale_attr_id = tb.base_sale_attr_id
+        WHERE ta.spu_id = #{spuId}
+    </select>
+
+    <select id="selectSpuSaleAttrBySpuIdBySkuId" resultMap="spuSaleAttrMap">
+        SELECT sp1.id,
+               sp1.spu_id,
+               sp1.base_sale_attr_id,
+               sp1.sale_attr_name,
+               sp2.id                         spu_sale_attr_value_id,
+               sp2.sale_attr_value_name,
+               IF
+                   (sk1.sku_id IS NULL, 0, 1) isChecked
+        FROM spu_sale_attr sp1
+                 INNER JOIN spu_sale_attr_value sp2 ON sp1.base_sale_attr_id = sp2.base_sale_attr_id
+            AND sp1.spu_id = sp2.spu_id
+                 LEFT JOIN sku_sale_attr_value sk1 ON sk1.id = sp2.id
+            AND sk1.sku_id = #{skuId}
+        WHERE sp1.id = #{spuId}
+    </select>
+
+</mapper>
