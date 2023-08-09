@@ -523,7 +523,9 @@ public class ManagerServiceImpl implements ManagerService {
     public IPage<SkuInfo> getSkuInfoList(Integer page, Integer size) {
         return skuInfoMapper.selectPage(
                 new Page<SkuInfo>(page, size),
-                new LambdaQueryWrapper<SkuInfo>().orderByAsc(SkuInfo::getSpuId));
+                new LambdaQueryWrapper<SkuInfo>()
+                        .orderByAsc(SkuInfo::getSpuId)
+                        .orderByDesc(SkuInfo::getId));
     }
 
     /**

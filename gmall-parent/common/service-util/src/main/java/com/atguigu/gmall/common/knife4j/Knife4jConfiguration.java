@@ -68,7 +68,7 @@ public class Knife4jConfiguration {
     @Bean
     public GroupedOpenApi openAPI() {
         return GroupedOpenApi.builder()
-                .group("Knife4j-2.X版本")
+                .group("Knife4j-2.0.X版本")
                 .pathsToMatch("/**")
                 .build();
     }

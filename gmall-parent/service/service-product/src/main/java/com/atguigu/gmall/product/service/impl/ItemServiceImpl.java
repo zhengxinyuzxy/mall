@@ -27,18 +27,25 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private BaseCategoryViewMapper baseCategoryViewMapper;
+
     @Autowired
     private RedisTemplate redisTemplate;
+
     @Autowired
     private RedissonClient redissonClient;
+
     @Autowired
     private SkuImageMapper skuImageMapper;
+
     @Autowired
     private SpuSaleAttrMapper spuSaleAttrMapper;
+
     @Autowired
     private SkuSaleAttrValueMapper skuSaleAttrValueMapper;
+
     @Autowired
     private BaseTrademarkMapper baseTrademarkMapper;
+
     @Autowired
     private BaseAttrInfoMapper baseAttrInfoMapper;
 
