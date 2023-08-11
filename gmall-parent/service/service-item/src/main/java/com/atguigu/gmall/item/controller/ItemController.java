@@ -14,6 +14,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping(value = "/client/item")
+//@Api(value = "Item-Controller", tags = "商品详情微服务的外部controller")
 public class ItemController {
 
 //    @Autowired

@@ -24,20 +24,24 @@
     </select>
 
     <select id="selectSpuSaleAttrBySpuIdBySkuId" resultMap="spuSaleAttrMap">
-        SELECT sp1.id,
-               sp1.spu_id,
-               sp1.base_sale_attr_id,
-               sp1.sale_attr_name,
-               sp2.id                         spu_sale_attr_value_id,
-               sp2.sale_attr_value_name,
-               IF
-                   (sk1.sku_id IS NULL, 0, 1) isChecked
-        FROM spu_sale_attr sp1
-                 INNER JOIN spu_sale_attr_value sp2 ON sp1.base_sale_attr_id = sp2.base_sale_attr_id
-            AND sp1.spu_id = sp2.spu_id
-                 LEFT JOIN sku_sale_attr_value sk1 ON sk1.id = sp2.id
-            AND sk1.sku_id = #{skuId}
-        WHERE sp1.id = #{spuId}
+        SELECT
+        tb1.id,
+        tb1.spu_id,
+        tb1.base_sale_attr_id,
+        tb1.sale_attr_name,
+        tb2.id AS spu_sale_attr_value_id,
+        tb2.sale_attr_value_name,
+        IF
+        ( tb3.id IS NULL, 0, 1 ) isChecked
+        FROM
+        spu_sale_attr tb1
+        INNER JOIN spu_sale_attr_value tb2 ON tb1.spu_id = tb2.spu_id
+        AND tb1.base_sale_attr_id = tb2.base_sale_attr_id
+        LEFT JOIN sku_sale_attr_value tb3 ON tb3.sale_attr_value_id = tb2.id
+        AND tb3.spu_id = tb1.spu_id
+        AND tb3.sku_id = #{skuId}
+        WHERE
+        tb1.spu_id = #{spuId}
     </select>
 
 </mapper>
