@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableDiscoveryClient
 @ComponentScan("com.atguigu.gmall")
-@EnableFeignClients("com.atguigu.gmall.product.*")
+@EnableFeignClients("com.atguigu.gmall.product.feign")
 public class ItemApplication {
     public static void main(String[] args) {
         SpringApplication.run(ItemApplication.class, args);
