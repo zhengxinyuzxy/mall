@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/test/product/dlock")
+@RequestMapping(value = "/test/product/testlock")
 public class TestDLockController {
 
     @Autowired

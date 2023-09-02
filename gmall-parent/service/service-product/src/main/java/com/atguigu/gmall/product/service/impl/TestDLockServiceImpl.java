@@ -20,11 +20,11 @@ public class TestDLockServiceImpl implements TestDLockService {
 
     // 不使用数据库加锁是因为容易造成死锁
 
-//    /**
-//     * 例子1：单点不并发
-//     * 1. 单点不并发向redis中设置键值, 数据安全, 没有并发问题
-//     * 2. 单点并发向redis中设置键值, 数据不安全, 有并发问题
-//     */
+    /**
+     * 例子1：单点不并发
+     * 1. 单点不并发向redis中设置键值, 数据安全, 没有并发问题
+     * 2. 单点并发向redis中设置键值, 数据不安全, 有并发问题
+     */
 //    @Override
 //    public void setValue() {
 //        // 获取redis中key为abc的值
@@ -39,10 +39,10 @@ public class TestDLockServiceImpl implements TestDLockService {
 //        redisTemplate.opsForValue().set("abc", abc);
 //    }
 
-//    /**
-//     * 例子2：单点并发使用synchronized(本地锁)锁
-//     * 1. 单点并发向redis中设置键值, 使用synchronized(本地锁)锁, 并发情况下没有数据不安全问题
-//     */
+    /**
+     * 例子2：单点并发使用synchronized(本地锁)锁
+     * 1. 单点并发向redis中设置键值, 使用synchronized(本地锁)锁, 并发情况下没有数据不安全问题
+     */
 //    @Override
 //    public synchronized void setValue() {
 //        // 获取redis中key为abc的值
@@ -76,12 +76,12 @@ public class TestDLockServiceImpl implements TestDLockService {
 //        redisTemplate.opsForValue().set("abc", abc);
 //    }
 
-//    /**
-//     * 例子4：多点并发使用redis加锁
-//     * 1. 多点并发使用redis实现分布式锁, 数据是安全的
-//     * 2. setIfAbsent相当于setNX, setNX理解为当Key存在失败, key不存在时成功
-//     * 3. 一定要释放锁
-//     */
+    /**
+     * 例子4：多点并发使用redis加锁
+     * 1. 多点并发使用redis实现分布式锁, 数据是安全的
+     * 2. setIfAbsent相当于setNX, setNX理解为当Key存在失败, key不存在时成功
+     * 3. 一定要释放锁
+     */
 //    @Override
 //    public void setValue() {
 //        // 尝试使用redis加锁
@@ -111,13 +111,13 @@ public class TestDLockServiceImpl implements TestDLockService {
 //        }
 //    }
 
-//    /**
-//     * 例子5：多点并发使用redis加锁, 中途出现问题没有到释放锁, 死锁问题, 加过期时间
-//     * 1. 多点并发使用redis实现分布式锁, 数据是安全的
-//     * 2. setIfAbsent相当于setNX, setNX理解为当Key存在失败, key不存在时成功
-//     * 3. 一定要释放锁
-//     * 4. 制造异常, 没有释放锁, 造成死锁, 需要加过期时间
-//     */
+    /**
+     * 例子5：多点并发使用redis加锁, 中途出现问题没有到释放锁, 死锁问题, 加过期时间
+     * 1. 多点并发使用redis实现分布式锁, 数据是安全的
+     * 2. setIfAbsent相当于setNX, setNX理解为当Key存在失败, key不存在时成功
+     * 3. 一定要释放锁
+     * 4. 制造异常, 没有释放锁, 造成死锁, 需要加过期时间
+     */
 //    @Override
 //    public void setValue() {
 //        // 尝试使用redis加锁
@@ -125,7 +125,7 @@ public class TestDLockServiceImpl implements TestDLockService {
 //        // 加锁成功进行++操作, 否则一直尝试加锁
 //        if (aBoolean) {
 //            // 获取redis中key为abc的值
-//            Integer abc = (Integer)redisTemplate.opsForValue().get("abc");
+//            Integer abc = (Integer) redisTemplate.opsForValue().get("abc");
 //            // 判断abc的值是否为空, 不为空+1
 //            if (abc == null) {
 //                return;
@@ -135,7 +135,7 @@ public class TestDLockServiceImpl implements TestDLockService {
 //            // 执行+1操作后存入redis
 //            redisTemplate.opsForValue().set("abc", abc);
 //            // 制造异常, 此时出现问题, 没有释放锁, 造成死锁
-//            int i = 10 /0;
+//            int i = 10 / 0;
 //            // 只有一个拿到锁, 其他一直加锁会一直失败, 所以一定要释放锁
 //            redisTemplate.delete("lockKey");
 //        } else {
@@ -149,13 +149,13 @@ public class TestDLockServiceImpl implements TestDLockService {
 //        }
 //    }
 
-//    /**
-//     * 例子6：多点并发使用redis加锁, 释放锁时误删锁, 使用UUID表示值进行对比, 确定是不是自己的锁, 但存在时间差, 依然存在锁误删
-//     * 1. 多点并发使用redis实现分布式锁, 数据是安全的
-//     * 2. setIfAbsent相当于setNX, setNX理解为当Key存在失败, key不存在时成功
-//     * 3. 一定要释放锁
-//     * 4. 制造异常, 没有释放锁, 造成死锁, 需要加过期时间
-//     */
+    /**
+     * 例子6：多点并发使用redis加锁, 释放锁时误删锁, 使用UUID表示值进行对比, 确定是不是自己的锁, 但存在时间差, 依然存在锁误删
+     * 1. 多点并发使用redis实现分布式锁, 数据是安全的
+     * 2. setIfAbsent相当于setNX, setNX理解为当Key存在失败, key不存在时成功
+     * 3. 一定要释放锁
+     * 4. 制造异常, 没有释放锁, 造成死锁, 需要加过期时间
+     */
 //    @Override
 //    public void setValue() {
 //        // 生成UUID
@@ -198,6 +198,7 @@ public class TestDLockServiceImpl implements TestDLockService {
 //            }
 //        }
 //    }
+
     @Autowired
     private RedissonClient redissonClient;
 

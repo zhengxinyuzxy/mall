@@ -25,6 +25,7 @@
         <module>service-mq</module>
         <module>service-pay</module>
         <module>service-activity</module>
+        <module>service-auth</module>
     </modules>
 
     <dependencies>
