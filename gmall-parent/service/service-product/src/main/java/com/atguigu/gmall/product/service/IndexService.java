@@ -1,7 +1,7 @@
 package com.atguigu.gmall.product.service;
 
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 
 import java.util.List;
 
@@ -16,4 +16,5 @@ public interface IndexService {
      * @return
      */
     public List<JSONObject> getIndexCategory();
+
 }

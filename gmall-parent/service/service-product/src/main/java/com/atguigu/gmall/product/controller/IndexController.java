@@ -15,9 +15,10 @@ public class IndexController {
     @Autowired
     private IndexService indexService;
 
-    @GmallCache(prefix = "getBaseCategoryView:")
-    @GetMapping("/getBaseCategoryView")
-    public Result getBaseCategoryView() {
+    @GmallCache(prefix = "getIndexCategory:")
+    @GetMapping("/getIndexCategory")
+    public Result getIndexCategory() {
         return Result.ok(indexService.getIndexCategory());
     }
+
 }
