@@ -79,8 +79,8 @@ public interface ProductFeign {
      * @param skuId
      * @return
      */
-    @GetMapping("/getBaseTrademark/{skuId}")
-    public BaseTrademark getBaseTrademark(@PathVariable("skuId") Long skuId);
+    @GetMapping("/getBaseTrademark/{id}")
+    public BaseTrademark getBaseTrademark(@PathVariable("id") Long id);
 
     /**
      * 根据skuId查询销售属性信息

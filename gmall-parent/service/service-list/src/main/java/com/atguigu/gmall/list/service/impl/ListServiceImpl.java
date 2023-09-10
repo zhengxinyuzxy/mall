@@ -69,7 +69,7 @@ public class ListServiceImpl implements ListService {
 //            }
 //
 //            BaseTrademark baseTrademark =
-//                    productFeign.getBaseTrademark(skuInfo.getId());
+//                    productFeign.getBaseTrademark(skuInfo.getTmId());
 //
 //            goods.setTmId(baseTrademark.getId());
 //            goods.setTmName(baseTrademark.getTmName());
@@ -135,7 +135,7 @@ public class ListServiceImpl implements ListService {
         goods.setCreateTime(new Date());
         goods.setTmId(skuInfo.getTmId());
 
-        BaseTrademark baseTrademark = productFeign.getBaseTrademark(skuId);
+        BaseTrademark baseTrademark = productFeign.getBaseTrademark(skuInfo.getTmId());
         goods.setTmName(baseTrademark.getTmName());
         goods.setTmLogoUrl(baseTrademark.getLogoUrl());
 
@@ -178,6 +178,7 @@ public class ListServiceImpl implements ListService {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
     /**
      * 增加热度
      *
@@ -199,10 +200,10 @@ public class ListServiceImpl implements ListService {
         // 修改热度值
         Double hotScore = redisTemplate.opsForZSet().incrementScore("hotScore", "goods" + skuId, 1);
 
-        if (hotScore % 10 == 0 ) {
-        goods.setHotScore(hotScore.longValue());
-        // 保存
-        goodsDao.save(goods);
+        if (hotScore % 10 == 0) {
+            goods.setHotScore(hotScore.longValue());
+            // 保存
+            goodsDao.save(goods);
         }
     }
 }

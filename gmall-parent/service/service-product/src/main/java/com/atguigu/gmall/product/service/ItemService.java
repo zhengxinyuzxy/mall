@@ -82,7 +82,7 @@ public interface ItemService {
      * @param skuId
      * @return
      */
-    public BaseTrademark getBaseTrademark(Long skuId);
+    public BaseTrademark getBaseTrademark(Long id);
 
     /**
      * 根据skuId查询销售属性信息

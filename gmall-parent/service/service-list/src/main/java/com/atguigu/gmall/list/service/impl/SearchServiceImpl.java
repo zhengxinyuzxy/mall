@@ -1,10 +1,12 @@
 package com.atguigu.gmall.list.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
+import com.atguigu.gmall.common.constant.PageConst;
 import com.atguigu.gmall.list.service.SearchService;
 import com.atguigu.gmall.model.list.Goods;
 import com.atguigu.gmall.model.list.SearchResponseAttrVo;
 import com.atguigu.gmall.model.list.SearchResponseTmVo;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.search.join.ScoreMode;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
@@ -28,7 +30,6 @@ import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
 import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 import java.util.*;
@@ -38,7 +39,6 @@ public class SearchServiceImpl implements SearchService {
 
     @Autowired
     private RestHighLevelClient restHighLevelClient;
-
 
     /**
      * 商品搜索
@@ -76,7 +76,7 @@ public class SearchServiceImpl implements SearchService {
      */
     private SearchRequest builderQueryParam(Map<String, String> searchData) {
         // 初始化，指定查询的索引
-        SearchRequest searchRequest = new SearchRequest("goods_zhengxinyu");
+        SearchRequest searchRequest = new SearchRequest("goods");
         // 查询条件构造器
         SearchSourceBuilder builder = new SearchSourceBuilder();
 
@@ -123,29 +123,30 @@ public class SearchServiceImpl implements SearchService {
         // 参数校验，防止空指针异常NullPointerException
         if (!StringUtils.isEmpty(price)) {
             // 对price进行数据处理
-            price = price.replace("以上", "").replace("元", "");
-            String[] split = price.split(":");
+            price = price
+                    .replace("以上", "")
+                    .replace("元", "");
+            String[] split = price.split("-");
 
             boolQueryBuilder.must(QueryBuilders.rangeQuery("price").gte(split[0]));
             if (split.length > 1) {
                 boolQueryBuilder.must(QueryBuilders.rangeQuery("price").lt(split[1]));
             }
-
         }
 
         // 分页和排序
-        builder.size(100);
+        builder.size(PageConst.ES_PAGE_SIZE);
         Integer page = getPage(searchData);
-        builder.from((page - 1) * 100);
+        builder.from((page - 1) * PageConst.ES_PAGE_SIZE);
 
         // 排序的实现
-        String highField = searchData.get("highField");
-        if (!StringUtils.isEmpty(highField)) {
-            String lowField = searchData.get("lowField");
-            if (!StringUtils.isEmpty(lowField)) {
-                builder.sort(highField, SortOrder.valueOf(lowField));
+        String sortFiled = searchData.get("sortFiled");
+        if (!StringUtils.isEmpty(sortFiled)) {
+            String sortRule = searchData.get("sortRule");
+            if (!StringUtils.isEmpty(sortRule)) {
+                builder.sort(sortFiled, SortOrder.valueOf(sortRule));
             } else {
-                builder.sort(highField, SortOrder.DESC);
+                builder.sort(sortFiled, SortOrder.DESC);
             }
         }
 
@@ -209,7 +210,7 @@ public class SearchServiceImpl implements SearchService {
         // 获取总数量
         long totalHits = hits.getTotalHits();
         result.put("total", totalHits);
-        result.put("size", 100);
+        result.put("size", PageConst.ES_PAGE_SIZE);
         // 初始化反序列化的商品列表
         List<Goods> goodsList = new ArrayList<>();
         // 获取迭代器
@@ -289,14 +290,10 @@ public class SearchServiceImpl implements SearchService {
             // 平台属性值的初始化
             List<String> attrValues = new ArrayList<>();
             List<? extends Terms.Bucket> aggAttrValuesBuckets = aggAttrValues.getBuckets();
-            for (Terms.Bucket aggAttrNameBucket : aggAttrValuesBuckets) {
-                String attrValue = aggAttrNameBucket.getKeyAsString();
+            for (Terms.Bucket aggAttrValueBucket : aggAttrValuesBuckets) {
+                String attrValue = aggAttrValueBucket.getKeyAsString();
                 attrValues.add(attrValue);
             }
-//            for (Terms.Bucket aggAttrValueBucket : aggAttrValues.getBuckets()) {
-//                String attrValue = aggAttrValueBucket.getKeyAsString();
-//                attrValues.add(attrValue);
-//            }
             // 设置包装对象属性
             searchResponseAttrVo.setAttrValueList(attrValues);
             searchResponseAttrVos.add(searchResponseAttrVo);

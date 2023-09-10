@@ -536,7 +536,7 @@ public class ManagerServiceImpl implements ManagerService {
      * @return
      */
     @Override
-    public SkuInfo onOroOffSale(Long skuId, Short status) {
+    public SkuInfo onSaleOrOff(Long skuId, Short status) {
         // 参数校验
         if (skuId == null) {
             throw new RuntimeException("参数异常!");

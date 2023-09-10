@@ -134,6 +134,6 @@ public interface ManagerService {
      * @param status
      * @return
      */
-    public SkuInfo onOroOffSale(Long skuId, Short status);
+    public SkuInfo onSaleOrOff(Long skuId, Short status);
 
 }

@@ -123,9 +123,9 @@ public class ItemController {
      * @return
      */
     @GmallCache(prefix = "getBaseTrademark:")
-    @GetMapping("/getBaseTrademark/{skuId}")
-    public BaseTrademark getBaseTrademark(@PathVariable("skuId") Long skuId) {
-        return itemService.getBaseTrademark(skuId);
+    @GetMapping("/getBaseTrademark/{id}")
+    public BaseTrademark getBaseTrademark(@PathVariable("id") Long id) {
+        return itemService.getBaseTrademark(id);
     }
 
     /**

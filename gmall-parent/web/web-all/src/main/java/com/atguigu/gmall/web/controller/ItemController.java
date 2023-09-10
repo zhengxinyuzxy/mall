@@ -57,7 +57,8 @@ public class ItemController {
         // 创建上下文
         Context context = new Context();
         context.setVariables(skuItem);
-        File file = new File("D:/" + skuId + ".html");
+        // File file = new File("D:/" + skuId + ".html");
+        File file = new File("D:/code/mall/gmall-parent/web/web-all/src/main/resources/templates/" + skuId + ".html");
         PrintWriter printWriter = new PrintWriter(file);
         // 基于模板生成静态页面
         templateEngine.process("item", context, printWriter);
@@ -90,7 +91,8 @@ public class ItemController {
         Object page = search.get("page");
         Object total = search.get("total");
         Object size = search.get("size");
-        Page<Object> pageInfo = new Page<>(Long.parseLong(total.toString()),
+        Page<Object> pageInfo = new Page<>(
+                Long.parseLong(total.toString()),
                 Integer.parseInt(page.toString()),
                 Integer.parseInt(size.toString()));
         model.addAttribute("pageInfo", pageInfo);
@@ -110,7 +112,7 @@ public class ItemController {
         String url = "/page/item/list?";
         for (Map.Entry<String, String> entry : searchData.entrySet()) {
             String key = entry.getKey();
-            if (!key.equals("page") && !key.equals("highField") && !key.equals("lowField")) {
+            if (!key.equals("page") && !key.equals("sortFiled") && !key.equals("sortRule")) {
                 String value = entry.getValue();
                 url = url + key + "=" + value + "&";
 

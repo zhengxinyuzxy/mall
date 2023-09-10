@@ -597,21 +597,26 @@
             </ul>
             <ul class="fl sui-tag">
                 <li class="with-x" th:if="${#maps.containsKey(searchData, 'tradeMark')}">
-                        <span >
-                            <span th:text="${#strings.arraySplit(searchData.tradeMark, ':')[1]}"></span>
-                            <a th:href="@{${#strings.replace(url, '&tradeMark=' + searchData.tradeMark, '')}}">×</a>
-                        </span>
-                </li>
-                <li class="with-x" th:each="abc:${searchData}" th:if="${#strings.startsWith(abc.key, 'attr_')}">
-                        <span>
-                            <span th:text="${#strings.replace(abc.key, 'attr_', '')} + ':' + ${#strings.arraySplit(abc.value, ':')[1]}"></span>
-                            <a th:href="${#strings.replace(url, '&' + abc.key + '=' + abc.value, '')}">×</a>
-                        </span>
+                    <span>
+                        <span th:text="${#strings.arraySplit(searchData.tradeMark, ':')[1]}"></span>
+<!--                        <a th:href="${#strings.replace(url, '&tradeMark=' + searchData.tradeMark, '')}">×</a>-->
+                        <a th:href="${url.contains('&tradeMark')?
+                        #strings.replace(url, '&tradeMark=' + searchData.tradeMark, ''):
+                        #strings.replace(url, 'tradeMark=' + searchData.tradeMark, '')}">×</a>
+                    </span>
                 </li>
                 <li class="with-x" th:if="${#maps.containsKey(searchData,'price')}">
                     <span>
-                    <span th:text="${searchData.price}"></span>
-                    <a th:href="@{${#strings.replace(url, '$price=' + searchData.price, '')}}">×</a>
+                        <span th:text="${searchData.price}"></span>
+                        <a th:href="${url.contains('&price')?
+                        #strings.replace(url, '&price=' + searchData.price, ''):
+                        #strings.replace(url, 'price=' + searchData.price, '')}">×</a>
+                    </span>
+                </li>
+                <li class="with-x" th:each="abc:${searchData}" th:if="${#strings.startsWith(abc.key, 'attr_')}">
+                    <span>
+                        <span  th:text="${#strings.replace(abc.key, 'attr_', '')} + ':' + ${#strings.arraySplit(abc.value, ':')[1]}"></span>
+                        <a th:href="${#strings.replace(url, abc.key + '=' + abc.value, '')}">×</a>
                     </span>
                 </li>
             </ul>
@@ -624,7 +629,8 @@
                     <ul class="logo-list">
                         <li th:each="tradeMark:${trademarkResultList}">
                             <a th:text="${tradeMark.tmName}"
-                               th:href="@{${url}(tradeMark = ${tradeMark.tmId} + ':' + ${tradeMark.tmName})}"></a>
+                               th:href="@{${url}(tradeMark = ${tradeMark.tmId} + ':' + ${tradeMark.tmName})}">
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -651,23 +657,23 @@
                 <div class="fl key">价格</div>
                 <div class="fl value">
                     <ul class="type-list">
-                        <li th:href="@{${url}(price='500元')}">
-                            <a>0-500元</a>
+                        <li>
+                            <a th:href="@{${url}(price='0-2000元')}">0-2000元</a>
                         </li>
-                        <li th:href="@{${url}(price='500-1000元')}">
-                            <a>500-1000元</a>
+                        <li>
+                            <a th:href="@{${url}(price='2000-1000元')}">2000-3000元</a>
                         </li>
-                        <li th:href="@{${url}(price='1000-1500元')}">
-                            <a>1000-1500元</a>
+                        <li>
+                            <a th:href="@{${url}(price='3000-5000元')}">3000-5000元</a>
                         </li>
-                        <li th:href="@{${url}(price='1500-2000元')}">
-                            <a>1500-2000元</a>
+                        <li>
+                            <a th:href="@{${url}(price='5000-7000元')}">5000-7000元</a>
                         </li>
-                        <li th:href="@{${url}(price='2000-3000元')}">
-                            <a>2000-3000元 </a>
+                        <li>
+                            <a th:href="@{${url}(price='7000-9000元')}">7000-9000元</a>
                         </li>
-                        <li th:href="@{${url}(price='3000元以上')}">
-                            <a>3000元以上</a>
+                        <li>
+                            <a th:href="@{${url}(price='9000元以上')}">9000元以上</a>
                         </li>
                     </ul>
                 </div>
@@ -717,10 +723,10 @@
                             <a href="#">评价</a>
                         </li>
                         <li>
-                            <a th:href="@{${url}(highField='price', lowField='ASC')}">价格⬆</a>
+                            <a th:href="@{${url}(sortFiled='price', sortRule='ASC')}">价格⬆</a>
                         </li>
                         <li>
-                            <a th:href="@{${url}(highField='price', lowField='DESC')}">价格⬇</a>
+                            <a th:href="@{${url}(sortFiled='price', sortRule='DESC')}">价格⬇</a>
                         </li>
                     </ul>
                 </div>
@@ -758,10 +764,11 @@
                         <li class="prev disabled">
                             <a th:href="@{${url}(page=${pageInfo.getUpper()})}">«上一页</a>
                         </li>
-                        <li th:class="${pageInfo.currentpage} == ${i}?'active':''"
-                            th:each="i:${#numbers.sequence(pageInfo.lpage, pageInfo.rpage,1)}">
-                            <a th:href="@{${url}(page=${pageInfo.getNext()})}"
-                               th:text="${i}">1</a>
+                        <li th:each="i:${#numbers.sequence(pageInfo.lpage, pageInfo.rpage,1)}"
+                            th:class="${pageInfo.currentpage}==${i}?'active':''">
+                            <a th:href="@{${url}(page=${i})}"
+                               th:text="${i}">
+                            </a>
                         </li>
                         <li class="dotted"><span>...</span></li>
                         <li class="next">

@@ -5,11 +5,11 @@ import java.util.Map;
 /**
  * 商品的搜索
  */
-public interface SearchSaleService {
+public interface TrySearchService {
     /**
      * 商品搜索
-     * @param searchData
+     * @param searchMap
      * @return
      */
-    public Map<String, Object> search(Map<String, String> searchData);
+    Map<String, Object> searchs(Map<String, String> searchMap);
 }

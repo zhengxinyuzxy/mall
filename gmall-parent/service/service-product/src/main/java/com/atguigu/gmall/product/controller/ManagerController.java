@@ -201,9 +201,9 @@ public class ManagerController {
      * @param skuId
      * @return
      */
-    @GetMapping("/saleOn/{skuId}")
-    public Result SkuSaleOn(@PathVariable("skuId") Long skuId) {
-        return Result.ok(managerService.onOroOffSale(skuId, ProductConst.SKU_SALE_ON));
+    @GetMapping("/onSale/{skuId}")
+    public Result onSale(@PathVariable("skuId") Long skuId) {
+        return Result.ok(managerService.onSaleOrOff(skuId, ProductConst.SKU_SALE_ON));
     }
 
     /**
@@ -212,9 +212,9 @@ public class ManagerController {
      * @param skuId
      * @return
      */
-    @GetMapping("/saleOff/{skuId}")
-    public Result SkuSaleOff(@PathVariable("skuId") Long skuId) {
-        return Result.ok(managerService.onOroOffSale(skuId, ProductConst.SKU_SALE_OFF));
+    @GetMapping("/cancelSale/{skuId}")
+    public Result offSale(@PathVariable("skuId") Long skuId) {
+        return Result.ok(managerService.onSaleOrOff(skuId, ProductConst.SKU_SALE_OFF));
     }
 
 }
