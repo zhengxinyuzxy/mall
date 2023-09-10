@@ -51,7 +51,6 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 查询关于sku_info表的所有信息
-     *
      * @param skuId
      * @return
      */
@@ -63,7 +62,6 @@ public class ItemServiceImpl implements ItemService {
     /**
      * 根据redisorDb查询关于sku_info表的所有信息， redis单点情况
      * 使用UUID作为锁的值保证唯一
-     *
      * @param skuId
      * @return
      */
@@ -120,7 +118,6 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 使用redisson从redis和数据库中查询skuInfo的信息，redis集群情况
-     *
      * @param skuId
      * @return
      */
@@ -174,7 +171,6 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 根据三级分类查询一级二级三级分类信息
-     *
      * @param category3Id
      * @return
      */
@@ -185,7 +181,6 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 查询图片列表
-     *
      * @param skuId
      * @return
      */
@@ -198,7 +193,6 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 根据skuId查询sku_info表的price价格
-     *
      * @param skuId
      * @return
      */
@@ -210,7 +204,6 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 根据spuId, skuId查询销售属性和属性值, 标识唯一的选中商品
-     *
      * @param spuId
      * @param skuId
      * @return
@@ -222,7 +215,6 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 根据spu的id查询sku的销售属性键值对
-     *
      * @param spuId
      * @return
      */
@@ -246,7 +238,6 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 根据skuId查询品牌信息
-     *
      * @param skuId
      * @return
      */
@@ -256,8 +247,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     /**
-     * 根据skuId查询销售属性信息
-     *
+     * 根据skuId查询平台属性信息
      * @param skuId
      * @return
      */
@@ -268,20 +258,19 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 扣减库存
-     *
      * @param map
      */
     @Override
     public Boolean decountStock(Map<String, String> map) {
-        //参数校验
+        // 参数校验
         if (map == null || map.size() == 0) {
             return false;
         }
-        //循环遍历map,循环扣减库存
+        // 循环遍历map,循环扣减库存
         for (Map.Entry<String, String> entry : map.entrySet()) {
-            //商品id
+            // 商品id
             String key = entry.getKey();
-            //扣减的数量
+            // 扣减的数量
             String value = entry.getValue();
             skuInfoMapper.decountStock(Long.parseLong(key), Integer.parseInt(value));
 //            //查询商品的信息
@@ -303,22 +292,21 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 回滚库存
-     *
      * @param map
      */
     @Override
     public Boolean rollbackStock(Map<String, String> map) {
-        //参数校验
+        // 参数校验
         if (map == null || map.size() == 0) {
             return false;
         }
-        //循环遍历map,循环扣减库存
+        // 循环遍历map,循环扣减库存
         for (Map.Entry<String, String> entry : map.entrySet()) {
-            //商品id
+            // 商品id
             String key = entry.getKey();
-            //扣减的数量
+            // 扣减的数量
             String value = entry.getValue();
-            //回滚库存
+            // 回滚库存
             skuInfoMapper.rollbackStock(Long.parseLong(key), Integer.parseInt(value));
         }
         return true;

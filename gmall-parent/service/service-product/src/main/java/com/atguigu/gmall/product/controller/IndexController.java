@@ -15,6 +15,10 @@ public class IndexController {
     @Autowired
     private IndexService indexService;
 
+    /**
+     * 首页三级分类
+     * @return
+     */
     @GmallCache(prefix = "getIndexCategory:")
     @GetMapping("/getIndexCategory")
     public Result getIndexCategory() {

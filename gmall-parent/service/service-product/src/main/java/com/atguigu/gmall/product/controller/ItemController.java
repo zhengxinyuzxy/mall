@@ -22,7 +22,6 @@ public class ItemController {
 
     /**
      * 查询skuInfo的信息
-     *
      * @param skuId
      * @return
      */
@@ -34,7 +33,6 @@ public class ItemController {
 
     /**
      * 从redis或数据库查询skuInfo的信息， redis单点情况
-     *
      * @param skuId
      * @return
      */
@@ -45,7 +43,6 @@ public class ItemController {
 
     /**
      * 使用redisson从redis或数据库查询skuInfo的信息， redis集群情况
-     *
      * @param skuId
      * @return
      */
@@ -56,7 +53,6 @@ public class ItemController {
 
     /**
      * 根据三级分类id查询一级二级三级分类的信息
-     *
      * @param category3Id
      * @return
      */
@@ -68,7 +64,6 @@ public class ItemController {
 
     /**
      * 查询sku_image表所有信息
-     *
      * @param skuId
      * @return
      */
@@ -80,7 +75,6 @@ public class ItemController {
 
     /**
      * 根剧skuId查询sku_info表的price
-     *
      * @param skuId
      * @return
      */
@@ -92,7 +86,6 @@ public class ItemController {
 
     /**
      * 根据spuId, skuId查询销售属性和属性值, 标识唯一的选中商品
-     *
      * @param spuId
      * @param skuId
      * @return
@@ -106,7 +99,6 @@ public class ItemController {
 
     /**
      * 根据spu的id查询sku的销售属性键值对
-     *
      * @param spuId
      * @return
      */
@@ -118,7 +110,6 @@ public class ItemController {
 
     /**
      * 根据skuId查询品牌信息
-     *
      * @param skuId
      * @return
      */
@@ -129,8 +120,7 @@ public class ItemController {
     }
 
     /**
-     * 根据skuId查询销售属性信息
-     *
+     * 根据skuId查询平台属性信息
      * @param skuId
      * @return
      */
@@ -142,7 +132,6 @@ public class ItemController {
 
     /**
      * 扣减库存
-     *
      * @param map
      * @return
      */
@@ -153,7 +142,6 @@ public class ItemController {
 
     /**
      * 回滚库存
-     *
      * @param map
      * @return
      */
