@@ -15,7 +15,6 @@ public interface BaseAttrInfoMapper extends BaseMapper<BaseAttrInfo> {
 
     /**
      * 根据平台分类id查询平台属性列表
-     *
      * @param category1Id
      * @param category2Id
      * @param category3Id
@@ -27,7 +26,6 @@ public interface BaseAttrInfoMapper extends BaseMapper<BaseAttrInfo> {
 
     /**
      * 根据skuId查询平台属性信息
-     *
      * @param skuId
      * @return
      */

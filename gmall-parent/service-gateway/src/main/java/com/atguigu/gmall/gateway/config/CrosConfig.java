@@ -14,14 +14,13 @@ public class CrosConfig {
 
     /**
      * 使用跨域配置类解决跨域问题，包含cookie的跨域，使用配置文件方式不能解决cookie跨域问题
-     *
      */
     @Bean
     public CorsWebFilter corsWebFilter() {
 
         // cors跨域配置对象
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("*"); //设置允许访问的网络
+        configuration.addAllowedOrigin("*"); // 设置允许访问的网络
         configuration.setAllowCredentials(true); // 设置是否从服务器获取cookie
         configuration.addAllowedMethod("*"); // 设置请求方法 * 表示任意
         configuration.addAllowedHeader("*"); // 所有请求头信息 * 表示任意

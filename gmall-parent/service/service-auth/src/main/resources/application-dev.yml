@@ -48,8 +48,8 @@ spring:
     time-zone: GMT+8
 auth:
   ttl: 3600  #token存储到redis的过期时间
-  clientId: atguigu
-  clientSecret: atguigu
+  clientId: mellow
+  clientSecret: mellow
   cookieDomain: localhost
   cookieMaxAge: -1
 encrypt:

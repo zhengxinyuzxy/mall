@@ -29,7 +29,6 @@ public class GmallCacheAspect {
     /**
      * 增强方法，@annotation监听的作用域是com.atguigu.gmall.common.cache.GmallCache，任何加了GmallCache的方法都会被监听
      * point是方法执行的进度
-     *
      * @param point
      * @return
      */
@@ -97,7 +96,7 @@ public class GmallCacheAspect {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //boolean flag = lock.tryLock(10L, 10L, TimeUnit.SECONDS);
+        // boolean flag = lock.tryLock(10L, 10L, TimeUnit.SECONDS);
         return result;
     }
 

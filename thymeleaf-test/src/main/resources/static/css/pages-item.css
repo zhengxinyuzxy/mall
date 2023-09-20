@@ -21,6 +21,7 @@ a {
     margin: 15px 0;
     font-family: "微软雅黑"
 }
+
 .preview-wrap {
     width: 400px
 }
@@ -269,21 +270,21 @@ ul.part-list li {
     line-height: 28px
 }
 
-.sui-nav.nav-tabs.tab-wraped>li {
+.sui-nav.nav-tabs.tab-wraped > li {
     width: 50%
 }
 
-.sui-nav.nav-tabs.tab-wraped>li>a {
+.sui-nav.nav-tabs.tab-wraped > li > a {
     padding: 11px;
     text-align: center
 }
 
-.sui-nav.nav-tabs.tab-wraped>li.active>a {
+.sui-nav.nav-tabs.tab-wraped > li.active > a {
     padding-top: 9px;
     border-top: 3px solid #e1251b
 }
 
-.intro .sui-nav.nav-tabs.tab-wraped>li.active>a {
+.intro .sui-nav.nav-tabs.tab-wraped > li.active > a {
     font-weight: 400;
     border: 0;
     padding-top: 12px;
@@ -378,7 +379,7 @@ ul.goods-intro li {
     background: #ededed
 }
 
-.intro .sui-nav.nav-tabs.tab-wraped>li {
+.intro .sui-nav.nav-tabs.tab-wraped > li {
     width: auto
 }
 
@@ -519,6 +520,7 @@ ul.goods-intro li {
 .com-item .user-info .guige {
     color: #999
 }
+
 .com-item .user-info .guige .reply {
     color: #ff0909;
     margin: 10px;
@@ -526,12 +528,15 @@ ul.goods-intro li {
     padding-top: 15px;
     font-size: 14px;
 }
+
 .com-item .user-info .guige .reply .name {
     padding-right: 20px;
 }
+
 .com-item .user-info .guige .reply .time {
     color: #999
 }
+
 .com-item .user-info .operate {
     float: right
 }

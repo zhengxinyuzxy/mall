@@ -57,7 +57,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 查询所有的一级分类
-     *
      * @return
      */
     @Override
@@ -67,7 +66,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 根据一级分类查询二级分类
-     *
      * @param category1Id
      * @return
      */
@@ -83,13 +81,12 @@ public class ManagerServiceImpl implements ManagerService {
         wrapper.eq(BaseCategory2::getCategory1Id, category1Id);
         // 执行查询,获取结果
         List<BaseCategory2> baseCategory2List = baseCategory2Mapper.selectList(wrapper);
-        //返回结果
+        // 返回结果
         return baseCategory2List;
     }
 
     /**
      * 根据二级分类查询三级分类
-     *
      * @param category2Id
      * @return
      */
@@ -105,13 +102,12 @@ public class ManagerServiceImpl implements ManagerService {
         wrapper.eq(BaseCategory3::getCategory2Id, category2Id);
         // 执行查询,获取结果
         List<BaseCategory3> baseCategory3List = baseCategory3Mapper.selectList(wrapper);
-        //返回结果
+        // 返回结果
         return baseCategory3List;
     }
 
     /**
      * 保存平台属性
-     *
      * @param baseAttrInfo
      */
     @Override
@@ -164,7 +160,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 根据平台一级二级三级分类id查询平台属性列表
-     *
      * @param category1Id
      * @param category2Id
      * @param category3Id
@@ -179,7 +174,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 根据平台属性名称的id查询平台属性值的列表
-     *
      * @param attrId
      * @return
      */
@@ -191,7 +185,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 查询SPU品牌列表
-     *
      * @return
      */
     @Override
@@ -201,7 +194,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 品牌分页
-     *
      * @param page
      * @param size
      * @return
@@ -215,7 +207,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 查询SPU销售属性列表
-     *
      * @return
      */
     @Override
@@ -225,7 +216,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 保存SPU销售属性的信息
-     *
      * @param spuInfo
      */
     @Override
@@ -276,7 +266,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 保存销售属性的信息
-     *
      * @param spuSaleAttrList
      */
     private List<SpuSaleAttr> saveSpuSaleAttrList(List<SpuSaleAttr> spuSaleAttrList,
@@ -302,7 +291,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 保存销售属性值的信息
-     *
      * @param spuSaleAttr
      * @return
      */
@@ -325,7 +313,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 保存spu的图片信息
-     *
      * @param spuImageList
      * @param spuId
      * @return
@@ -349,7 +336,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 分页查询SPU列表信息
-     *
      * @param category3Id
      * @param page
      * @param size
@@ -364,7 +350,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 根据spu_sale_attr表的spuId查询所有的销售属性列表
-     *
      * @param spuId
      * @return
      */
@@ -375,7 +360,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 根据spuId查询SpuImage图片列表
-     *
      * @param spuId
      * @return
      */
@@ -388,7 +372,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 保存SKU的信息/修改SKU的信息
-     *
      * @param skuInfo
      * @return
      */
@@ -453,7 +436,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 保存sku销售属性表的信息
-     *
      * @param skuSaleAttrValueList
      */
     private List<SkuSaleAttrValue> saveSkuSaleAttrValue(List<SkuSaleAttrValue> skuSaleAttrValueList, Long skuId, Long spuId) {
@@ -475,7 +457,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 保存sku平台属性表的信息
-     *
      * @param skuAttrValueList
      */
     private List<SkuAttrValue> saveSkuAttrValue(List<SkuAttrValue> skuAttrValueList, Long skuId) {
@@ -495,7 +476,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 保存sku图片表的信息
-     *
      * @param skuImageList
      */
     private List<SkuImage> saveSkuImage(List<SkuImage> skuImageList, Long skuId) {
@@ -504,7 +484,7 @@ public class ManagerServiceImpl implements ManagerService {
             // 补全skuId
             skuImage.setSkuId(skuId);
 
-            //保存skuImage
+            // 保存skuImage
             skuImageMapper.insert(skuImage);
 
             // 返回skuImage
@@ -514,7 +494,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 分页查询skuInfo信息
-     *
      * @param page
      * @param size
      * @return
@@ -530,7 +509,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     /**
      * 商品的上架和下架
-     *
      * @param skuId
      * @param status
      * @return
@@ -549,7 +527,7 @@ public class ManagerServiceImpl implements ManagerService {
         if (status.intValue() == skuInfo.getIsSale()) {
             throw new RuntimeException("商品上下架状态一样，不能修改！请检查");
         }
-        //修改skuinfo中关于上下架的属性值
+        // 修改skuinfo中关于上下架的属性值
         skuInfo.setIsSale(status.intValue());
         // 重新设置回skuInfo的信息
         skuInfoMapper.updateById(skuInfo);

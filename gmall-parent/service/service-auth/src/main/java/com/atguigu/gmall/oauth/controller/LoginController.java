@@ -42,4 +42,12 @@ public class LoginController {
         return Result.ok(authToken);
     }
 
+    // 测试-TODO
+    // @PostMapping
+    // public Result login(String username, String password) {
+    //     // 登录获取令牌
+    //     AuthToken authToken = loginService.loginTest(username, password);
+    //     return Result.ok(authToken);
+    // }
+
 }

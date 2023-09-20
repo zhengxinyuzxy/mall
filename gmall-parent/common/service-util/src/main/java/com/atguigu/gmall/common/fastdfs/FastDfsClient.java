@@ -15,7 +15,7 @@ import java.io.InputStream;
 /**
  * 操作fastdsf的工具类
  */
-@Component//交给spring管理
+@Component// 交给spring管理
 public class FastDfsClient {
 
     @Autowired
@@ -25,40 +25,39 @@ public class FastDfsClient {
      * 文件上传
      */
     public String upload(MultipartFile file) throws Exception {
-        StorePath storePath = fastFileStorageClient.uploadFile(file.getInputStream(), //文件数据流
-                file.getSize(),//文件大小
-                StringUtils.getFilenameExtension(file.getOriginalFilename()),//文件拓展名
-                null);//附加参数
-        //返回全量路径
+        StorePath storePath = fastFileStorageClient.uploadFile(file.getInputStream(), // 文件数据流
+                file.getSize(),// 文件大小
+                StringUtils.getFilenameExtension(file.getOriginalFilename()),// 文件拓展名
+                null);// 附加参数
+        // 返回全量路径
         return storePath.getFullPath();
     }
 
     /**
      * 文件下载
-     *
      * @return
      */
     public byte[] download(String groupName, String path) throws Exception {
-        //下载文件
+        // 下载文件
         InputStream inputStream = fastFileStorageClient.downloadFile(groupName, path, new DownloadCallback<InputStream>() {
-            //下载发生异常返回异常数据流
+            // 下载发生异常返回异常数据流
             @Override
             public InputStream recv(InputStream ins) throws IOException {
                 return ins;
             }
         });
-        //声明输出流
+        // 声明输出流
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        //声明缓冲区
+        // 声明缓冲区
         byte[] buffer = new byte[1024];
-        //定义每次读取的数据长度
+        // 定义每次读取的数据长度
         int lengh = 0;
-        //输入流转输出流
+        // 输入流转输出流
         while ((lengh = inputStream.read(buffer)) != -1) {
-            //输出流写入
+            // 输出流写入
             byteArrayOutputStream.write(buffer, 0, lengh);
         }
-        //返回字节码
+        // 返回字节码
         return byteArrayOutputStream.toByteArray();
     }
 

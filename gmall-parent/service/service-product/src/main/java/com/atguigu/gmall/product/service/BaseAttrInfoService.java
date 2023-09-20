@@ -13,7 +13,6 @@ public interface BaseAttrInfoService extends IService<BaseAttrInfo> {
 
     /**
      * 条件查询
-     *
      * @param baseAttrInfo
      * @return
      */
@@ -21,7 +20,6 @@ public interface BaseAttrInfoService extends IService<BaseAttrInfo> {
 
     /**
      * 分页查询
-     *
      * @param page 当前页码
      * @param size 每页显示的条数
      * @return
@@ -30,7 +28,6 @@ public interface BaseAttrInfoService extends IService<BaseAttrInfo> {
 
     /**
      * 分页条件查询
-     *
      * @param baseAttrInfo
      * @return
      */

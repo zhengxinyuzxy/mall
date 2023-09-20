@@ -14,14 +14,14 @@
     <!--根据一级二级三级分类信息查询平台属性信息-->
     <select id="selectBaseAttrInfoByCategory" resultMap="baseattrinfoMap">
         SELECT bai.id,
-               bai.attr_name,
-               bai.category_id,
-               bai.category_level,
-               bav.id base_attr_value_id,
-               bav.value_name,
-               bav.attr_id
+        bai.attr_name,
+        bai.category_id,
+        bai.category_level,
+        bav.id base_attr_value_id,
+        bav.value_name,
+        bav.attr_id
         FROM base_attr_info bai
-                 INNER JOIN base_attr_value bav ON bai.id = bav.attr_id
+        INNER JOIN base_attr_value bav ON bai.id = bav.attr_id
         <where>
             <if test="category1Id != null and category1Id != 0">
                 or (bai.category_id = #{category1Id} AND bai.category_level = 1)

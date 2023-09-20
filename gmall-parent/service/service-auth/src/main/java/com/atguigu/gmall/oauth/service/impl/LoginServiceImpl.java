@@ -26,10 +26,14 @@ public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private LoadBalancerClient loadBalancerClient;
+    @Value("${auth.clientId}")
+    private String clientId;
+    @Value("${auth.clientSecret}")
+    private String clientSecret;
 
     /**
      * 用户登录
-     *  @param username
+     * @param username
      * @param password
      * @return
      */
@@ -50,7 +54,7 @@ public class LoginServiceImpl implements LoginService {
         body.add("password", password);
         HttpEntity httpEntity = new HttpEntity(body, headers);
         // 请求路径
-//        String url = "http://localhost:9001/oauth/token";
+        // String url = "http://localhost:9001/oauth/token";
         ServiceInstance choose = loadBalancerClient.choose("service-oauth");
         String s = choose.getUri().toString();
         String url = s + "/oauth/token";
@@ -70,11 +74,48 @@ public class LoginServiceImpl implements LoginService {
         return authToken;
     }
 
-    @Value("${auth.clientId}")
-    private String clientId;
+    /**
+     * 测试-TODO
+     * @param username
+     * @param password
+     * @return
+     */
+    @Override
+    public AuthToken loginTest(String username, String password) {
+        // 参数校验
+        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
+            return null;
+        }
+        // 包装参数
+        // 初始化请求头
+        MultiValueMap<String, String> headers = new HttpHeaders();
+        headers.add("Authorization", getHeadsParam());
+        // 初始化body
+        MultiValueMap<String, String> body = new HttpHeaders();
+        body.add("grant_type", "password");
+        body.add("username", username);
+        body.add("password", password);
+        HttpEntity httpEntity = new HttpEntity(body, headers);
+        // 请求路径
+        // String url = "http://localhost:9001/oauth/token";
+        ServiceInstance choose = loadBalancerClient.choose("service-oauth");
+        String uri = choose.getUri().toString();
+        String url = uri + "/oauth/token";
+        // 发起请求，获取结果
+        ResponseEntity<Map> exchange = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
+        Map<String, String> result = exchange.getBody();
+        // 解析结果
+        AuthToken authToken = new AuthToken();
+        String access_token = result.get("access_token");
+        authToken.setAccessToken(access_token);
+        String refresh_token = result.get("refresh_token");
+        authToken.setRefreshToken(refresh_token);
+        String jti = result.get("jti");
+        authToken.setJti(jti);
+        // 返回结果
+        return authToken;
+    }
 
-    @Value("${auth.clientSecret}")
-    private String clientSecret;
     /**
      * 获取请求头中的参数
      * @return
@@ -89,4 +130,5 @@ public class LoginServiceImpl implements LoginService {
         // 返回结果
         return "Basic " + s;
     }
+
 }

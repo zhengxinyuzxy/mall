@@ -31,10 +31,10 @@ public class Knife4jConfiguration {
     public Docket defaultApi2() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(this.apiInfo())
-                //分组名称
+                // 分组名称
                 .groupName("Knife4j-2.X版本")
                 .select()
-                //这里指定Controller扫描包路径
+                // 这里指定Controller扫描包路径
                 .apis(RequestHandlerSelectors.basePackage("com.atguigu"))
                 .paths(PathSelectors.any())
                 .build();

@@ -31,7 +31,6 @@ public class ProductApplication {
      * 2.6.1 @Import({AutoConfigurationImportSelector.class})动态导入/动态加载，类加载才会动态加载AutoConfigurationImportSelector.class进来
      * Selector（选择器）,项目启动是加载spring.factories里的内容，使用反射机制完成实例化，其中不抛异常把对象加载完成放入容器中。引入坐标则初始化实例化完成
      * 先读取配置文件，完成初始化
-     *
      * @param args
      */
     public static void main(String[] args) {

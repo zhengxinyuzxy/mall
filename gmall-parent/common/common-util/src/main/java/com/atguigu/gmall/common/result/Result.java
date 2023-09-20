@@ -44,7 +44,6 @@ public class Result<T> {
 
     /**
      * 操作成功
-     *
      * @param data
      * @param <T>
      * @return
@@ -60,7 +59,6 @@ public class Result<T> {
 
     /**
      * 操作失败
-     *
      * @param data
      * @param <T>
      * @return

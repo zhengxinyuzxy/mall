@@ -27,7 +27,6 @@ public class BaseAttrInfoServiceImpl
 
     /**
      * 条件查询
-     *
      * @param baseAttrInfo
      * @return
      */
@@ -59,7 +58,6 @@ public class BaseAttrInfoServiceImpl
 
     /**
      * 分页查询
-     *
      * @param page 当前页码
      * @param size 每页显示的条数
      * @return
@@ -78,7 +76,6 @@ public class BaseAttrInfoServiceImpl
 
     /**
      * 分页条件查询
-     *
      * @param baseAttrInfo
      * @param page
      * @param size
@@ -102,7 +99,6 @@ public class BaseAttrInfoServiceImpl
 
     /**
      * 提取声明构造器
-     *
      * @return
      */
     private LambdaQueryWrapper getQueryWrapper(BaseAttrInfo baseAttrInfo) {

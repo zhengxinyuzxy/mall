@@ -23,7 +23,6 @@ public class ManagerController {
 
     /**
      * 查询所有的一级分类
-     *
      * @return
      */
     @GetMapping(value = "/getCategory1")
@@ -33,7 +32,6 @@ public class ManagerController {
 
     /**
      * 根据一级分类查询二级分类
-     *
      * @param cid
      * @return
      */
@@ -44,7 +42,6 @@ public class ManagerController {
 
     /**
      * 根据二级分类查询三级分类
-     *
      * @param cid
      * @return
      */
@@ -55,7 +52,6 @@ public class ManagerController {
 
     /**
      * 保存平台属性
-     *
      * @param baseAttrInfo
      * @return
      */
@@ -66,7 +62,6 @@ public class ManagerController {
 
     /**
      * 根据平台分类id查询平台属性列表
-     *
      * @param category1Id
      * @param category2Id
      * @param category3Id
@@ -82,7 +77,6 @@ public class ManagerController {
     /**
      * 根据平台属性名称的id查询平台属性值的列表
      * 修改时回显平台属性值
-     *
      * @param attrId
      * @return
      */
@@ -93,7 +87,6 @@ public class ManagerController {
 
     /**
      * 查询SPU品牌列表
-     *
      * @return
      */
     @GetMapping(value = "/baseTrademark/getTrademarkList")
@@ -103,7 +96,6 @@ public class ManagerController {
 
     /**
      * 品牌分页
-     *
      * @return
      */
     @GetMapping(value = "/baseTrademark/{page}/{size}")
@@ -115,7 +107,6 @@ public class ManagerController {
 
     /**
      * 查询SPU所有销售属性名称列表
-     *
      * @return
      */
     @GetMapping(value = "/baseSaleAttrList")
@@ -125,7 +116,6 @@ public class ManagerController {
 
     /**
      * 保存SPU销售属性的信息/修改SPU销售属性的信息
-     *
      * @param spuInfo
      * @return
      */
@@ -136,7 +126,6 @@ public class ManagerController {
 
     /**
      * 分页查询SPU列表
-     *
      * @param page
      * @param size
      * @param category3Id
@@ -151,7 +140,6 @@ public class ManagerController {
 
     /**
      * 根据spuId查询所有销售属性和值列表
-     *
      * @param spuId
      * @return
      */
@@ -162,7 +150,6 @@ public class ManagerController {
 
     /**
      * 根据spuId查询所有的图片列表
-     *
      * @param spuId
      * @return
      */
@@ -173,7 +160,6 @@ public class ManagerController {
 
     /**
      * 保存与修改sku信息
-     *
      * @param skuInfo
      * @return
      */
@@ -184,7 +170,6 @@ public class ManagerController {
 
     /**
      * 分页查询skuInfo信息
-     *
      * @param page
      * @param size
      * @return
@@ -197,7 +182,6 @@ public class ManagerController {
 
     /**
      * 商品的上架
-     *
      * @param skuId
      * @return
      */
@@ -208,7 +192,6 @@ public class ManagerController {
 
     /**
      * 商品的下架
-     *
      * @param skuId
      * @return
      */

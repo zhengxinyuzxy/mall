@@ -34,7 +34,6 @@ public interface ProductFeign {
 
     /**
      * 查询SPU品牌列表
-     *
      * @return
      */
     @GetMapping(value = "/baseTrademark/getTrademarkList")
@@ -96,7 +95,7 @@ public interface ProductFeign {
      * @return
      */
     @GetMapping(value = "/decountStock")
-    public Boolean decountStock(@RequestParam Map<String,String> map);
+    public Boolean decountStock(@RequestParam Map<String, String> map);
 
     /**
      * 回滚库存
@@ -104,5 +103,5 @@ public interface ProductFeign {
      * @return
      */
     @GetMapping(value = "/rollbackStock")
-    public Boolean rollbackStock(@RequestParam Map<String,String> map);
+    public Boolean rollbackStock(@RequestParam Map<String, String> map);
 }

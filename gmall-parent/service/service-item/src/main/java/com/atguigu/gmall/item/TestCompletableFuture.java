@@ -156,8 +156,8 @@ public class TestCompletableFuture {
         }).handle(new BiFunction<Integer, Throwable, Integer>() {
             @Override
             public Integer apply(Integer integer, Throwable throwable) {
-                System.out.println("任务执行结果：" + integer + "当前使用的线程是："+ Thread.currentThread().getName());
-                System.out.println("任务执行异常：" +throwable + "当前使用的线程是："+ Thread.currentThread().getName());
+                System.out.println("任务执行结果：" + integer + "当前使用的线程是：" + Thread.currentThread().getName());
+                System.out.println("任务执行异常：" + throwable + "当前使用的线程是：" + Thread.currentThread().getName());
                 return 12309;
             }
         });

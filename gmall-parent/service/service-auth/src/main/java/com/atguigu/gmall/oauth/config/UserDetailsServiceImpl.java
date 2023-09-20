@@ -1,6 +1,8 @@
 package com.atguigu.gmall.oauth.config;
 
+import com.atguigu.gmall.model.user.UserInfo;
 import com.atguigu.gmall.oauth.util.UserJwt;
+import com.atguigu.gmall.user.feign.UserFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -9,6 +11,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
@@ -23,6 +26,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     ClientDetailsService clientDetailsService;
+    @Autowired
+    private UserFeign userFeign;
+
+    public static void main(String[] args) {
+        String mellow = new BCryptPasswordEncoder().encode("mellow");
+        System.out.println(mellow);
+        System.out.println(BCrypt.checkpw("mellow", mellow));
+    }
 
     /**
      * 自定义授权认证
@@ -52,7 +63,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             return null;
         }
         // 根据用户名查询用户信息
-        String pwd = new BCryptPasswordEncoder().encode("atguigu");
+        // 静态用户密码，写死的
+        // String pwd = new BCryptPasswordEncoder().encode("atguigu");
+        // 动态加载用户密码
+        UserInfo userInfo = userFeign.getUserInfo(username);
+        if (null == userInfo) {
+            return null;
+        }
+        String pwd = userInfo.getPasswd();
         // 创建User对象,校验用户名密码
         UserJwt userDetails = new UserJwt(username,
                 pwd,
@@ -61,8 +79,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return userDetails;
     }
 
-    // public static void main(String[] args) {
-    //     String atguigu = new BCryptPasswordEncoder().encode("atguigu");
-    //     System.out.println(BCrypt.checkpw("atguigu", atguigu));
-    // }
 }

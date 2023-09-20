@@ -14,7 +14,6 @@ public interface SkuInfoMapper extends BaseMapper<SkuInfo> {
 
     /**
      * 扣减库存
-     *
      * @param id
      * @param num
      * @return
@@ -25,7 +24,6 @@ public interface SkuInfoMapper extends BaseMapper<SkuInfo> {
 
     /**
      * 回滚库存
-     *
      * @param id
      * @param num
      * @return

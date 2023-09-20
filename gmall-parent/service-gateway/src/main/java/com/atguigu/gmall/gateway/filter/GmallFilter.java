@@ -47,10 +47,10 @@ public class GmallFilter implements GlobalFilter, Ordered {
             }
         }
         // 判断token是否为空
-        if (!StringUtils.isEmpty(token)) {
+        if (StringUtils.isEmpty(token)) {
             // 用户请求中没有token，拒绝请求
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
-            return  response.setComplete();
+            return response.setComplete();
         }
         // token存在,校验令牌是否盗用
         String gatwayIpAddress = IpUtil.getGatwayIpAddress(request);
@@ -58,16 +58,17 @@ public class GmallFilter implements GlobalFilter, Ordered {
         String redisToken = stringRedisTemplate.opsForValue().get(gatwayIpAddress);
         if (StringUtils.isEmpty(redisToken)) {
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
+            return response.setComplete();
         }
         // 判断token是否一致
-        /*if (!redisToken.equals(token)) {
+        if (!redisToken.equals(token)) {
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
             return response.setComplete();
-        }*/
+        }
         // 正常情况将token放入请求头中
         request.mutate().header("Authorization", "bearer " + token);
         // 放行
-        return  chain.filter(exchange);
+        return chain.filter(exchange);
     }
 
     /**
@@ -77,7 +78,6 @@ public class GmallFilter implements GlobalFilter, Ordered {
      * analogous to Servlet {@code load-on-startup} values).
      * <p>Same order values will result in arbitrary sort positions for the
      * affected objects.
-     *
      * @return the order value
      * @see #HIGHEST_PRECEDENCE
      * @see #LOWEST_PRECEDENCE

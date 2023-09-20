@@ -27,7 +27,6 @@ public class BaseCategory1ServiceImpl
 
     /**
      * 条件查询
-     *
      * @param baseCategory1
      * @return
      */
@@ -59,7 +58,6 @@ public class BaseCategory1ServiceImpl
 
     /**
      * 分页查询
-     *
      * @param page 当前页码
      * @param size 每页显示的条数
      * @return
@@ -78,7 +76,6 @@ public class BaseCategory1ServiceImpl
 
     /**
      * 分页条件查询
-     *
      * @param baseCategory1
      * @param page
      * @param size
@@ -102,7 +99,6 @@ public class BaseCategory1ServiceImpl
 
     /**
      * 提取声明构造器
-     *
      * @return
      */
     private LambdaQueryWrapper getQueryWrapper(BaseCategory1 baseCategory1) {

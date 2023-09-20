@@ -29,7 +29,6 @@ public class BaseAttrInfoControllor {
 
     /**
      * 根据id查找
-     *
      * @param id
      * @return
      */
@@ -40,7 +39,6 @@ public class BaseAttrInfoControllor {
 
     /**
      * 查找所有
-     *
      * @return
      */
     @GetMapping(value = "/findAll")
@@ -53,7 +51,6 @@ public class BaseAttrInfoControllor {
 
     /**
      * 新增
-     *
      * @param baseAttrInfo
      * @return
      */
@@ -64,7 +61,6 @@ public class BaseAttrInfoControllor {
 
     /**
      * 修改
-     *
      * @param baseAttrInfo
      * @return
      */
@@ -75,7 +71,6 @@ public class BaseAttrInfoControllor {
 
     /**
      * 删除
-     *
      * @param id
      * @return
      */
@@ -86,7 +81,6 @@ public class BaseAttrInfoControllor {
 
     /**
      * 条件查询
-     *
      * @param baseAttrInfo
      * @return
      */
@@ -97,7 +91,6 @@ public class BaseAttrInfoControllor {
 
     /**
      * 分页查询
-     *
      * @param page
      * @param size
      * @return
@@ -110,7 +103,6 @@ public class BaseAttrInfoControllor {
 
     /**
      * 分页条件查询
-     *
      * @param baseAttrInfo
      * @param page
      * @param size

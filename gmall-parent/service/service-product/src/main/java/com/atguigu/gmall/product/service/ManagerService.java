@@ -11,14 +11,12 @@ import java.util.List;
 public interface ManagerService {
     /**
      * 查询所有的一级分类
-     *
      * @return
      */
     public List<BaseCategory1> getCategory1();
 
     /**
      * 根据一级分类查询二级分类
-     *
      * @param category1Id
      * @return
      */
@@ -26,7 +24,6 @@ public interface ManagerService {
 
     /**
      * 根据二级分类查询三级分类
-     *
      * @param category2Id
      * @return
      */
@@ -34,14 +31,12 @@ public interface ManagerService {
 
     /**
      * 保存平台属性
-     *
      * @param baseAttrInfo
      */
     public BaseAttrInfo saveAttrInfo(BaseAttrInfo baseAttrInfo);
 
     /**
      * 根据平台分类id查询平台属性列表
-     *
      * @param category1Id
      * @param category2Id
      * @param category3Id
@@ -53,7 +48,6 @@ public interface ManagerService {
 
     /**
      * 根据平台属性名称的id查询平台属性值的列表
-     *
      * @param attrId
      * @return
      */
@@ -61,21 +55,18 @@ public interface ManagerService {
 
     /**
      * 查询SPU品牌列表
-     *
      * @return
      */
     public List<BaseTrademark> getBaseTrademark();
 
     /**
      * 品牌分页
-     *
      * @return
      */
     public IPage<BaseTrademark> pageBaseTrademark(int page, int size);
 
     /**
      * 查询SPU销售属性列表
-     *
      * @return
      */
     public List<BaseSaleAttr> getBaseSaleAttr();
@@ -87,7 +78,6 @@ public interface ManagerService {
 
     /**
      * 分页查询SPU列表信息
-     *
      * @param category3Id
      * @param page
      * @param size
@@ -96,7 +86,6 @@ public interface ManagerService {
 
     /**
      * 根据spu_sale_attr表的spuId查询所有的销售属性列表
-     *
      * @param spuId
      * @return
      */
@@ -104,7 +93,6 @@ public interface ManagerService {
 
     /**
      * 根据spuId查询SpuImage图片列表
-     *
      * @param spuId
      * @return
      */
@@ -112,7 +100,6 @@ public interface ManagerService {
 
     /**
      * 保存SKU的信息/修改SKU的信息
-     *
      * @param skuInfo
      * @return
      */
@@ -120,7 +107,6 @@ public interface ManagerService {
 
     /**
      * 分页查询skuInfo信息
-     *
      * @param page
      * @param size
      * @return
@@ -129,7 +115,6 @@ public interface ManagerService {
 
     /**
      * 商品的上架和下架
-     *
      * @param skuId
      * @param status
      * @return

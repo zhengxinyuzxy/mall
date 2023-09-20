@@ -22,7 +22,6 @@ import java.time.Duration;
 
 /**
  * Redis配置类
- *
  */
 @Configuration
 @EnableCaching
@@ -70,7 +69,7 @@ public class RedisConfig {
         RedisSerializer<String> redisSerializer = new StringRedisSerializer();
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
 
-        //解决查询缓存转换异常的问题
+        // 解决查询缓存转换异常的问题
         ObjectMapper om = new ObjectMapper();
         om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);

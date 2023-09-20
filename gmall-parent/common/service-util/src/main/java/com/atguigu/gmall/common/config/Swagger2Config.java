@@ -35,7 +35,7 @@ public class Swagger2Config {
     @Bean
     public Docket webApiConfig() {
 
-        //添加head参数start
+        // 添加head参数start
         List<Parameter> pars = new ArrayList<>();
         ParameterBuilder tokenPar = new ParameterBuilder();
         tokenPar.name("userId")
@@ -56,16 +56,16 @@ public class Swagger2Config {
                 .required(false)
                 .build();
         pars.add(tmpPar.build());
-        //添加head参数end
+        // 添加head参数end
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("webAPI")
                 .apiInfo(this.webApiInfo())
                 .select()
-                //过滤掉admin路径下的所有页面
+                // 过滤掉admin路径下的所有页面
                 .paths(PathSelectors.regex("/api/.*"))
 //                .paths(PathSelectors.regex("/api/.*"))
-                //过滤掉所有error或error.*页面
+                // 过滤掉所有error或error.*页面
                 //.paths(Predicates.not(PathSelectors.regex("/error.*")))
                 .build()
                 .globalOperationParameters(pars);
@@ -84,7 +84,7 @@ public class Swagger2Config {
                 .groupName("adminAPI")
                 .apiInfo(this.adminApiInfo())
                 .select()
-                //只显示admin路径下的页面
+                // 只显示admin路径下的页面
                 .paths(PathSelectors.regex("/admin/.*"))
                 .build();
     }

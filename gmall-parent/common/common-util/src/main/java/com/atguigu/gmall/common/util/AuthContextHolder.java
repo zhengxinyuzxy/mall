@@ -1,6 +1,6 @@
 package com.atguigu.gmall.common.util;
 
-//import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+// import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 
 import org.springframework.util.StringUtils;
 
@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 获取登录用户信息类
- *
  */
 public class AuthContextHolder {
 

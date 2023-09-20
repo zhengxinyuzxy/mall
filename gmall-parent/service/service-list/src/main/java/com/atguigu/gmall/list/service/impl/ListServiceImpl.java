@@ -29,11 +29,11 @@ public class ListServiceImpl implements ListService {
 
     @Autowired
     private GoodsDao goodsDao;
-
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     /**
      * es商品的上架
-     *
      * @param skuId
      */
     @Override
@@ -162,7 +162,6 @@ public class ListServiceImpl implements ListService {
 
     /**
      * es商品的下架
-     *
      * @param skuId
      */
     @Override
@@ -176,12 +175,8 @@ public class ListServiceImpl implements ListService {
 
     }
 
-    @Autowired
-    private RedisTemplate redisTemplate;
-
     /**
      * 增加热度
-     *
      * @param skuId
      */
     @Override

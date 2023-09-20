@@ -10,8 +10,8 @@ import java.util.Collection;
  * 自定义用户属性
  */
 public class UserJwt extends User {
-    private String id;    //用户ID
-    private String name;  //用户名字
+    private String id;    // 用户ID
+    private String name;  // 用户名字
 
     public UserJwt(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);

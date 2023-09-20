@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible"/>
     <title>产品列表页</title>
-    <link rel="icon" href="/img/favicon.ico">
+    <link href="/img/favicon.ico" rel="icon">
 
 
-    <link rel="stylesheet" type="text/css" href="/css/all.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/pages-list.css"/>
+    <link href="/css/all.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/pages-list.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
                     <ul class="fl">
                         <li class="f-item">尚品汇欢迎您！</li>
                         <li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html"
-                                                                                                 target="_blank">免费注册</a></span>
+                                                                                                    target="_blank">免费注册</a></span>
                         </li>
                     </ul>
                     <div class="fr typelist">
@@ -51,18 +51,18 @@
             <div class="py-container">
                 <div class="yui3-g Logo">
                     <div class="yui3-u Left logoArea">
-                        <a class="logo-bd" title="尚品汇" href="index.html" target="_blank"></a>
+                        <a class="logo-bd" href="index.html" target="_blank" title="尚品汇"></a>
                     </div>
                     <div class="yui3-u Rit searchArea">
                         <div class="search">
                             <form action="/page/item/list" class="sui-form form-inline">
                                 <!--searchAutoComplete-->
                                 <div class="input-append">
-                                    <input type="text"
+                                    <input class="input-error input-xxlarge"
                                            id="autocomplete"
                                            name="keywords"
                                            th:value="${#maps.containsKey(searchData, 'keywords')}?${searchData.keywords}:''"
-                                           class="input-error input-xxlarge"/>
+                                           type="text"/>
                                     <button class="sui-btn btn-xlarge btn-danger" type="submit">搜索</button>
                                 </div>
                             </form>
@@ -92,7 +92,8 @@
                                 <div class="subitem">
                                     <dl class="fore1">
                                         <dt><a href="">电子书</a></dt>
-                                        <dd><a href="">免费</a><a href="">小说</a></em><a href="">励志与成功</a><em><a href="">婚恋/两性</a></em><em><a
+                                        <dd><a href="">免费</a><a href="">小说</a></em><a href="">励志与成功</a><em><a
+                                                href="">婚恋/两性</a></em><em><a
                                                 href="">文学</a></em><em><a href="">经管</a></em><em><a
                                                 href="">畅读VIP</a></em></dd>
                                     </dl>
@@ -105,7 +106,8 @@
                                 <div class="subitem">
                                     <dl class="fore1">
                                         <dt><a href="">电子书1</a></dt>
-                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a href="">励志与成功</a></em><em><a
+                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a
+                                                href="">励志与成功</a></em><em><a
                                                 href="">婚恋/两性</a></em><em><a href="">文学</a></em><em><a
                                                 href="">经管</a></em><em><a href="">畅读VIP</a></em></dd>
                                     </dl>
@@ -117,12 +119,14 @@
                                     </dl>
                                     <dl class="fore3">
                                         <dt><a href="">音像</a></dt>
-                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a href="">教育音像</a></em><em><a
+                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a
+                                                href="">教育音像</a></em><em><a
                                                 href="">游戏</a></em></dd>
                                     </dl>
                                     <dl class="fore4">
                                         <dt>文艺</dt>
-                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a href="">青春文学</a></em><em><a
+                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a
+                                                href="">青春文学</a></em><em><a
                                                 href="">传记</a></em><em><a href="">艺术</a></em></dd>
                                     </dl>
                                     <dl class="fore5">
@@ -133,12 +137,14 @@
                                     </dl>
                                     <dl class="fore6">
                                         <dt>经管励志</dt>
-                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a href="">管理</a></em><em><a
+                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a
+                                                href="">管理</a></em><em><a
                                                 href="">励志与成功</a></em></dd>
                                     </dl>
                                     <dl class="fore7">
                                         <dt>生活</dt>
-                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a href="">烹饪/美食</a></em><em><a
+                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a
+                                                href="">烹饪/美食</a></em><em><a
                                                 href="">时尚/美妆</a></em><em><a href="">家居</a></em><em><a href="">婚恋与两性</a></em><em><a
                                                 href="">娱乐/休闲</a></em><em><a href="">健身与保健</a></em><em><a
                                                 href="">动漫/幽默</a></em><em><a href="">体育/运动</a></em></dd>
@@ -147,7 +153,8 @@
                                         <dt>科技</dt>
                                         <dd><em><a href="">科普</a></em><em><a href="">IT</a></em><em><a
                                                 href="">建筑</a></em><em><a href="">医学</a></em><em><a
-                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a href="">农林</a></em><em><a
+                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a
+                                                href="">农林</a></em><em><a
                                                 href="">科学与自然</a></em></dd>
                                     </dl>
                                     <dl class="fore9">
@@ -165,7 +172,8 @@
                                 <div class="subitem">
                                     <dl class="fore1">
                                         <dt><a href="">电子书2</a></dt>
-                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a href="">励志与成功</a></em><em><a
+                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a
+                                                href="">励志与成功</a></em><em><a
                                                 href="">婚恋/两性</a></em><em><a href="">文学</a></em><em><a
                                                 href="">经管</a></em><em><a href="">畅读VIP</a></em></dd>
                                     </dl>
@@ -177,12 +185,14 @@
                                     </dl>
                                     <dl class="fore3">
                                         <dt><a href="">音像</a></dt>
-                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a href="">教育音像</a></em><em><a
+                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a
+                                                href="">教育音像</a></em><em><a
                                                 href="">游戏</a></em></dd>
                                     </dl>
                                     <dl class="fore4">
                                         <dt>文艺</dt>
-                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a href="">青春文学</a></em><em><a
+                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a
+                                                href="">青春文学</a></em><em><a
                                                 href="">传记</a></em><em><a href="">艺术</a></em></dd>
                                     </dl>
                                     <dl class="fore5">
@@ -200,7 +210,8 @@
                                 <div class="subitem">
                                     <dl class="fore1">
                                         <dt><a href="">电子书3</a></dt>
-                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a href="">励志与成功</a></em><em><a
+                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a
+                                                href="">励志与成功</a></em><em><a
                                                 href="">婚恋/两性</a></em><em><a href="">文学</a></em><em><a
                                                 href="">经管</a></em><em><a href="">畅读VIP</a></em></dd>
                                     </dl>
@@ -212,12 +223,14 @@
                                     </dl>
                                     <dl class="fore3">
                                         <dt><a href="">音像</a></dt>
-                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a href="">教育音像</a></em><em><a
+                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a
+                                                href="">教育音像</a></em><em><a
                                                 href="">游戏</a></em></dd>
                                     </dl>
                                     <dl class="fore4">
                                         <dt>文艺</dt>
-                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a href="">青春文学</a></em><em><a
+                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a
+                                                href="">青春文学</a></em><em><a
                                                 href="">传记</a></em><em><a href="">艺术</a></em></dd>
                                     </dl>
                                     <dl class="fore5">
@@ -228,12 +241,14 @@
                                     </dl>
                                     <dl class="fore6">
                                         <dt>经管励志</dt>
-                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a href="">管理</a></em><em><a
+                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a
+                                                href="">管理</a></em><em><a
                                                 href="">励志与成功</a></em></dd>
                                     </dl>
                                     <dl class="fore7">
                                         <dt>生活</dt>
-                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a href="">烹饪/美食</a></em><em><a
+                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a
+                                                href="">烹饪/美食</a></em><em><a
                                                 href="">时尚/美妆</a></em><em><a href="">家居</a></em><em><a href="">婚恋与两性</a></em><em><a
                                                 href="">娱乐/休闲</a></em><em><a href="">健身与保健</a></em><em><a
                                                 href="">动漫/幽默</a></em><em><a href="">体育/运动</a></em></dd>
@@ -242,7 +257,8 @@
                                         <dt>科技</dt>
                                         <dd><em><a href="">科普</a></em><em><a href="">IT</a></em><em><a
                                                 href="">建筑</a></em><em><a href="">医学</a></em><em><a
-                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a href="">农林</a></em><em><a
+                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a
+                                                href="">农林</a></em><em><a
                                                 href="">科学与自然</a></em></dd>
                                     </dl>
                                     <dl class="fore9">
@@ -271,7 +287,8 @@
                                 <div class="subitem">
                                     <dl class="fore1">
                                         <dt><a href="">电子书4</a></dt>
-                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a href="">励志与成功</a></em><em><a
+                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a
+                                                href="">励志与成功</a></em><em><a
                                                 href="">婚恋/两性</a></em><em><a href="">文学</a></em><em><a
                                                 href="">经管</a></em><em><a href="">畅读VIP</a></em></dd>
                                     </dl>
@@ -283,12 +300,14 @@
                                     </dl>
                                     <dl class="fore3">
                                         <dt><a href="">音像</a></dt>
-                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a href="">教育音像</a></em><em><a
+                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a
+                                                href="">教育音像</a></em><em><a
                                                 href="">游戏</a></em></dd>
                                     </dl>
                                     <dl class="fore4">
                                         <dt>文艺</dt>
-                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a href="">青春文学</a></em><em><a
+                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a
+                                                href="">青春文学</a></em><em><a
                                                 href="">传记</a></em><em><a href="">艺术</a></em></dd>
                                     </dl>
                                     <dl class="fore5">
@@ -299,12 +318,14 @@
                                     </dl>
                                     <dl class="fore6">
                                         <dt>经管励志</dt>
-                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a href="">管理</a></em><em><a
+                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a
+                                                href="">管理</a></em><em><a
                                                 href="">励志与成功</a></em></dd>
                                     </dl>
                                     <dl class="fore7">
                                         <dt>生活</dt>
-                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a href="">烹饪/美食</a></em><em><a
+                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a
+                                                href="">烹饪/美食</a></em><em><a
                                                 href="">时尚/美妆</a></em><em><a href="">家居</a></em><em><a href="">婚恋与两性</a></em><em><a
                                                 href="">娱乐/休闲</a></em><em><a href="">健身与保健</a></em><em><a
                                                 href="">动漫/幽默</a></em><em><a href="">体育/运动</a></em></dd>
@@ -313,7 +334,8 @@
                                         <dt>科技</dt>
                                         <dd><em><a href="">科普</a></em><em><a href="">IT</a></em><em><a
                                                 href="">建筑</a></em><em><a href="">医学</a></em><em><a
-                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a href="">农林</a></em><em><a
+                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a
+                                                href="">农林</a></em><em><a
                                                 href="">科学与自然</a></em></dd>
                                     </dl>
                                     <dl class="fore9">
@@ -331,7 +353,8 @@
                                 <div class="subitem">
                                     <dl class="fore1">
                                         <dt><a href="">电子书5</a></dt>
-                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a href="">励志与成功</a></em><em><a
+                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a
+                                                href="">励志与成功</a></em><em><a
                                                 href="">婚恋/两性</a></em><em><a href="">文学</a></em><em><a
                                                 href="">经管</a></em><em><a href="">畅读VIP</a></em></dd>
                                     </dl>
@@ -343,12 +366,14 @@
                                     </dl>
                                     <dl class="fore3">
                                         <dt><a href="">音像</a></dt>
-                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a href="">教育音像</a></em><em><a
+                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a
+                                                href="">教育音像</a></em><em><a
                                                 href="">游戏</a></em></dd>
                                     </dl>
                                     <dl class="fore4">
                                         <dt>文艺</dt>
-                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a href="">青春文学</a></em><em><a
+                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a
+                                                href="">青春文学</a></em><em><a
                                                 href="">传记</a></em><em><a href="">艺术</a></em></dd>
                                     </dl>
                                     <dl class="fore5">
@@ -359,12 +384,14 @@
                                     </dl>
                                     <dl class="fore6">
                                         <dt>经管励志</dt>
-                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a href="">管理</a></em><em><a
+                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a
+                                                href="">管理</a></em><em><a
                                                 href="">励志与成功</a></em></dd>
                                     </dl>
                                     <dl class="fore7">
                                         <dt>生活</dt>
-                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a href="">烹饪/美食</a></em><em><a
+                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a
+                                                href="">烹饪/美食</a></em><em><a
                                                 href="">时尚/美妆</a></em><em><a href="">家居</a></em><em><a href="">婚恋与两性</a></em><em><a
                                                 href="">娱乐/休闲</a></em><em><a href="">健身与保健</a></em><em><a
                                                 href="">动漫/幽默</a></em><em><a href="">体育/运动</a></em></dd>
@@ -373,7 +400,8 @@
                                         <dt>科技</dt>
                                         <dd><em><a href="">科普</a></em><em><a href="">IT</a></em><em><a
                                                 href="">建筑</a></em><em><a href="">医学</a></em><em><a
-                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a href="">农林</a></em><em><a
+                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a
+                                                href="">农林</a></em><em><a
                                                 href="">科学与自然</a></em></dd>
                                     </dl>
                                 </div>
@@ -385,7 +413,8 @@
                                 <div class="subitem">
                                     <dl class="fore1">
                                         <dt><a href="">电子书6</a></dt>
-                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a href="">励志与成功</a></em><em><a
+                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a
+                                                href="">励志与成功</a></em><em><a
                                                 href="">婚恋/两性</a></em><em><a href="">文学</a></em><em><a
                                                 href="">经管</a></em><em><a href="">畅读VIP</a></em></dd>
                                     </dl>
@@ -397,12 +426,14 @@
                                     </dl>
                                     <dl class="fore3">
                                         <dt><a href="">音像</a></dt>
-                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a href="">教育音像</a></em><em><a
+                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a
+                                                href="">教育音像</a></em><em><a
                                                 href="">游戏</a></em></dd>
                                     </dl>
                                     <dl class="fore4">
                                         <dt>文艺</dt>
-                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a href="">青春文学</a></em><em><a
+                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a
+                                                href="">青春文学</a></em><em><a
                                                 href="">传记</a></em><em><a href="">艺术</a></em></dd>
                                     </dl>
                                     <dl class="fore5">
@@ -413,12 +444,14 @@
                                     </dl>
                                     <dl class="fore6">
                                         <dt>经管励志</dt>
-                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a href="">管理</a></em><em><a
+                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a
+                                                href="">管理</a></em><em><a
                                                 href="">励志与成功</a></em></dd>
                                     </dl>
                                     <dl class="fore7">
                                         <dt>生活</dt>
-                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a href="">烹饪/美食</a></em><em><a
+                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a
+                                                href="">烹饪/美食</a></em><em><a
                                                 href="">时尚/美妆</a></em><em><a href="">家居</a></em><em><a href="">婚恋与两性</a></em><em><a
                                                 href="">娱乐/休闲</a></em><em><a href="">健身与保健</a></em><em><a
                                                 href="">动漫/幽默</a></em><em><a href="">体育/运动</a></em></dd>
@@ -427,7 +460,8 @@
                                         <dt>科技</dt>
                                         <dd><em><a href="">科普</a></em><em><a href="">IT</a></em><em><a
                                                 href="">建筑</a></em><em><a href="">医学</a></em><em><a
-                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a href="">农林</a></em><em><a
+                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a
+                                                href="">农林</a></em><em><a
                                                 href="">科学与自然</a></em></dd>
                                     </dl>
                                     <dl class="fore9">
@@ -456,7 +490,8 @@
                                 <div class="subitem">
                                     <dl class="fore1">
                                         <dt><a href="">电子书7</a></dt>
-                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a href="">励志与成功</a></em><em><a
+                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a
+                                                href="">励志与成功</a></em><em><a
                                                 href="">婚恋/两性</a></em><em><a href="">文学</a></em><em><a
                                                 href="">经管</a></em><em><a href="">畅读VIP</a></em></dd>
                                     </dl>
@@ -468,12 +503,14 @@
                                     </dl>
                                     <dl class="fore3">
                                         <dt><a href="">音像</a></dt>
-                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a href="">教育音像</a></em><em><a
+                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a
+                                                href="">教育音像</a></em><em><a
                                                 href="">游戏</a></em></dd>
                                     </dl>
                                     <dl class="fore4">
                                         <dt>文艺</dt>
-                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a href="">青春文学</a></em><em><a
+                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a
+                                                href="">青春文学</a></em><em><a
                                                 href="">传记</a></em><em><a href="">艺术</a></em></dd>
                                     </dl>
                                 </div>
@@ -500,7 +537,8 @@
                                 <div class="subitem">
                                     <dl class="fore1">
                                         <dt><a href="">电子书8</a></dt>
-                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a href="">励志与成功</a></em><em><a
+                                        <dd><em><a href="">免费</a></em><em><a href="">小说</a></em><em><a
+                                                href="">励志与成功</a></em><em><a
                                                 href="">婚恋/两性</a></em><em><a href="">文学</a></em><em><a
                                                 href="">经管</a></em><em><a href="">畅读VIP</a></em></dd>
                                     </dl>
@@ -512,12 +550,14 @@
                                     </dl>
                                     <dl class="fore3">
                                         <dt><a href="">音像</a></dt>
-                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a href="">教育音像</a></em><em><a
+                                        <dd><em><a href="">音乐</a></em><em><a href="">影视</a></em><em><a
+                                                href="">教育音像</a></em><em><a
                                                 href="">游戏</a></em></dd>
                                     </dl>
                                     <dl class="fore4">
                                         <dt>文艺</dt>
-                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a href="">青春文学</a></em><em><a
+                                        <dd><em><a href="">小说</a></em><em><a href="">文学</a></em><em><a
+                                                href="">青春文学</a></em><em><a
                                                 href="">传记</a></em><em><a href="">艺术</a></em></dd>
                                     </dl>
                                     <dl class="fore5">
@@ -528,12 +568,14 @@
                                     </dl>
                                     <dl class="fore6">
                                         <dt>经管励志</dt>
-                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a href="">管理</a></em><em><a
+                                        <dd><em><a href="">经济</a></em><em><a href="">金融与投资</a></em><em><a
+                                                href="">管理</a></em><em><a
                                                 href="">励志与成功</a></em></dd>
                                     </dl>
                                     <dl class="fore7">
                                         <dt>生活</dt>
-                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a href="">烹饪/美食</a></em><em><a
+                                        <dd><em><a href="">家庭与育儿</a></em><em><a href="">旅游/地图</a></em><em><a
+                                                href="">烹饪/美食</a></em><em><a
                                                 href="">时尚/美妆</a></em><em><a href="">家居</a></em><em><a href="">婚恋与两性</a></em><em><a
                                                 href="">娱乐/休闲</a></em><em><a href="">健身与保健</a></em><em><a
                                                 href="">动漫/幽默</a></em><em><a href="">体育/运动</a></em></dd>
@@ -542,7 +584,8 @@
                                         <dt>科技</dt>
                                         <dd><em><a href="">科普</a></em><em><a href="">IT</a></em><em><a
                                                 href="">建筑</a></em><em><a href="">医学</a></em><em><a
-                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a href="">农林</a></em><em><a
+                                                href="">工业技术</a></em><em><a href="">电子/通信</a></em><em><a
+                                                href="">农林</a></em><em><a
                                                 href="">科学与自然</a></em></dd>
                                     </dl>
                                 </div>
@@ -599,7 +642,7 @@
                 <li class="with-x" th:if="${#maps.containsKey(searchData, 'tradeMark')}">
                     <span>
                         <span th:text="${#strings.arraySplit(searchData.tradeMark, ':')[1]}"></span>
-<!--                        <a th:href="${#strings.replace(url, '&tradeMark=' + searchData.tradeMark, '')}">×</a>-->
+                        <!--                        <a th:href="${#strings.replace(url, '&tradeMark=' + searchData.tradeMark, '')}">×</a>-->
                         <a th:href="${url.contains('&tradeMark')?
                         #strings.replace(url, '&tradeMark=' + searchData.tradeMark, ''):
                         #strings.replace(url, 'tradeMark=' + searchData.tradeMark, '')}">×</a>
@@ -615,7 +658,7 @@
                 </li>
                 <li class="with-x" th:each="abc:${searchData}" th:if="${#strings.startsWith(abc.key, 'attr_')}">
                     <span>
-                        <span  th:text="${#strings.replace(abc.key, 'attr_', '')} + ':' + ${#strings.arraySplit(abc.value, ':')[1]}"></span>
+                        <span th:text="${#strings.replace(abc.key, 'attr_', '')} + ':' + ${#strings.arraySplit(abc.value, ':')[1]}"></span>
                         <a th:href="${#strings.replace(url, abc.key + '=' + abc.value, '')}">×</a>
                     </span>
                 </li>
@@ -628,14 +671,14 @@
                 <div class="value logos">
                     <ul class="logo-list">
                         <li th:each="tradeMark:${trademarkResultList}">
-                            <a th:text="${tradeMark.tmName}"
-                               th:href="@{${url}(tradeMark = ${tradeMark.tmId} + ':' + ${tradeMark.tmName})}">
+                            <a th:href="@{${url}(tradeMark = ${tradeMark.tmId} + ':' + ${tradeMark.tmName})}"
+                               th:text="${tradeMark.tmName}">
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="ext">
-                    <a href="javascript:void(0);" class="sui-btn">多选</a>
+                    <a class="sui-btn" href="javascript:void(0);">多选</a>
                     <a href="javascript:void(0);">更多</a>
                 </div>
             </div>
@@ -645,8 +688,8 @@
                 <div class="fl value">
                     <ul class="type-list">
                         <li th:each="attrValue:${baseAttr.attrValueList}">
-                            <a th:text="${attrValue}"
-                               th:href="@{${url}('attr_' + ${baseAttr.attrName} = ${baseAttr.attrId} + ':' + ${attrValue})}">
+                            <a th:href="@{${url}('attr_' + ${baseAttr.attrName} = ${baseAttr.attrId} + ':' + ${attrValue})}"
+                               th:text="${attrValue}">
                             </a>
                         </li>
                     </ul>
@@ -745,14 +788,14 @@
                                 </strong>
                             </div>
                             <div class="attr">
-                                <a target="_blank" href="item.html" th:utext="${goods.title}"></a>
+                                <a href="item.html" target="_blank" th:utext="${goods.title}"></a>
                             </div>
                             <div class="commit">
                                 <i th:text="${goods.id}"></i>
                             </div>
                             <div class="operate">
-                                <a href="success-cart.html" target="_blank" class="sui-btn btn-bordered btn-danger">加入购物车</a>
-                                <a href="javascript:void(0);" class="sui-btn btn-bordered">收藏</a>
+                                <a class="sui-btn btn-bordered btn-danger" href="success-cart.html" target="_blank">加入购物车</a>
+                                <a class="sui-btn btn-bordered" href="javascript:void(0);">收藏</a>
                             </div>
                         </div>
                     </li>
@@ -764,8 +807,8 @@
                         <li class="prev disabled">
                             <a th:href="@{${url}(page=${pageInfo.getUpper()})}">«上一页</a>
                         </li>
-                        <li th:each="i:${#numbers.sequence(pageInfo.lpage, pageInfo.rpage,1)}"
-                            th:class="${pageInfo.currentpage}==${i}?'active':''">
+                        <li th:class="${pageInfo.currentpage}==${i}?'active':''"
+                            th:each="i:${#numbers.sequence(pageInfo.lpage, pageInfo.rpage,1)}">
                             <a th:href="@{${url}(page=${i})}"
                                th:text="${i}">
                             </a>
@@ -959,28 +1002,28 @@
             <div class="toolbar-panels J-panel">
 
                 <!-- 购物车 -->
-                <div style="visibility: hidden;" class="J-content toolbar-panel tbar-panel-cart toolbar-animate-out">
+                <div class="J-content toolbar-panel tbar-panel-cart toolbar-animate-out" style="visibility: hidden;">
                     <h3 class="tbar-panel-header J-panel-header">
-                        <a href="" class="title"><i></i><em class="title">购物车</em></a>
+                        <a class="title" href=""><i></i><em class="title">购物车</em></a>
                         <span class="close-panel J-close" onclick="cartPanelView.tbar_panel_close('cart');"></span>
                     </h3>
                     <div class="tbar-panel-main">
                         <div class="tbar-panel-content J-panel-content">
-                            <div id="J-cart-tips" class="tbar-tipbox hide">
+                            <div class="tbar-tipbox hide" id="J-cart-tips">
                                 <div class="tip-inner">
                                     <span class="tip-text">还没有登录，登录后商品将被保存</span>
-                                    <a href="#none" class="tip-btn J-login">登录</a>
+                                    <a class="tip-btn J-login" href="#none">登录</a>
                                 </div>
                             </div>
                             <div id="J-cart-render">
                                 <!-- 列表 -->
-                                <div id="cart-list" class="tbar-cart-list">
+                                <div class="tbar-cart-list" id="cart-list">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- 小计 -->
-                    <div id="cart-footer" class="tbar-panel-footer J-panel-footer">
+                    <div class="tbar-panel-footer J-panel-footer" id="cart-footer">
                         <div class="tbar-checkout">
                             <div class="jtc-number"><strong class="J-count" id="cart-number">0</strong>件商品</div>
                             <div class="jtc-sum"> 共计：<strong class="J-total" id="cart-sum">¥0</strong></div>
@@ -990,9 +1033,9 @@
                 </div>
 
                 <!-- 我的关注 -->
-                <div style="visibility: hidden;" data-name="follow" class="J-content toolbar-panel tbar-panel-follow">
+                <div class="J-content toolbar-panel tbar-panel-follow" data-name="follow" style="visibility: hidden;">
                     <h3 class="tbar-panel-header J-panel-header">
-                        <a href="#" target="_blank" class="title"> <i></i> <em class="title">我的关注</em> </a>
+                        <a class="title" href="#" target="_blank"> <i></i> <em class="title">我的关注</em> </a>
                         <span class="close-panel J-close" onclick="cartPanelView.tbar_panel_close('follow');"></span>
                     </h3>
                     <div class="tbar-panel-main">
@@ -1006,9 +1049,9 @@
                 </div>
 
                 <!-- 我的足迹 -->
-                <div style="visibility: hidden;" class="J-content toolbar-panel tbar-panel-history toolbar-animate-in">
+                <div class="J-content toolbar-panel tbar-panel-history toolbar-animate-in" style="visibility: hidden;">
                     <h3 class="tbar-panel-header J-panel-header">
-                        <a href="#" target="_blank" class="title"> <i></i> <em class="title">我的足迹</em> </a>
+                        <a class="title" href="#" target="_blank"> <i></i> <em class="title">我的足迹</em> </a>
                         <span class="close-panel J-close" onclick="cartPanelView.tbar_panel_close('history');"></span>
                     </h3>
                     <div class="tbar-panel-main">
@@ -1026,7 +1069,7 @@
                                         <a href="#" target="_blank" class="price">￥498.00</a>
                                     </li>-->
                                 </ul>
-                                <a href="#" class="history-bottom-more" target="_blank">查看更多足迹商品 &gt;&gt;</a>
+                                <a class="history-bottom-more" href="#" target="_blank">查看更多足迹商品 &gt;&gt;</a>
                             </div>
                         </div>
                     </div>
@@ -1039,19 +1082,20 @@
 
             <!-- 侧栏按钮 -->
             <div class="toolbar-tabs J-tab">
-                <div onclick="cartPanelView.tabItemClick('cart')" class="toolbar-tab tbar-tab-cart" data="购物车"
+                <div class="toolbar-tab tbar-tab-cart" data="购物车" onclick="cartPanelView.tabItemClick('cart')"
                      tag="cart">
                     <i class="tab-ico"></i>
                     <em class="tab-text"></em>
                     <span class="tab-sub J-count " id="tab-sub-cart-count">0</span>
                 </div>
-                <div onclick="cartPanelView.tabItemClick('follow')" class="toolbar-tab tbar-tab-follow" data="我的关注"
+                <div class="toolbar-tab tbar-tab-follow" data="我的关注" onclick="cartPanelView.tabItemClick('follow')"
                      tag="follow">
                     <i class="tab-ico"></i>
                     <em class="tab-text"></em>
                     <span class="tab-sub J-count hide">0</span>
                 </div>
-                <div onclick="cartPanelView.tabItemClick('history')" class="toolbar-tab tbar-tab-history" data="我的足迹"
+                <div class="toolbar-tab tbar-tab-history" data="我的足迹"
+                     onclick="cartPanelView.tabItemClick('history')"
                      tag="history">
                     <i class="tab-ico"></i>
                     <em class="tab-text"></em>
@@ -1076,7 +1120,7 @@
 </div>
 
 
-<script type="text/javascript" src="/js/all.js"></script>
+<script src="/js/all.js" type="text/javascript"></script>
 </body>
 
 </html>

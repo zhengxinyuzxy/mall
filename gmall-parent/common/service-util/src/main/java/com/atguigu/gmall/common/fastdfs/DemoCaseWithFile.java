@@ -30,7 +30,6 @@ public class DemoCaseWithFile {
 
     /**
      * 自定义文件上传
-     *
      * @param file
      * @return
      * @throws Exception
@@ -97,7 +96,6 @@ public class DemoCaseWithFile {
 
     /**
      * 获取storageClient
-     *
      * @return
      * @throws IOException
      */

@@ -13,7 +13,6 @@ public interface BaseCategory2Service extends IService<BaseCategory2> {
 
     /**
      * 条件查询
-     *
      * @param baseCategory2
      * @return
      */
@@ -21,7 +20,6 @@ public interface BaseCategory2Service extends IService<BaseCategory2> {
 
     /**
      * 分页查询
-     *
      * @param page 当前页码
      * @param size 每页显示的条数
      * @return
@@ -30,7 +28,6 @@ public interface BaseCategory2Service extends IService<BaseCategory2> {
 
     /**
      * 分页条件查询
-     *
      * @param baseCategory2
      * @return
      */

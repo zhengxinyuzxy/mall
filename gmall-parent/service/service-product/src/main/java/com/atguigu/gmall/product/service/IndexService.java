@@ -12,7 +12,6 @@ public interface IndexService {
 
     /**
      * 查询所有首页的一级二级三级信息
-     *
      * @return
      */
     public List<JSONObject> getIndexCategory();

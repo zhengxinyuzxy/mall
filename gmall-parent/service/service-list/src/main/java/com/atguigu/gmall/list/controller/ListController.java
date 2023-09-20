@@ -17,6 +17,12 @@ public class ListController {
 
     @Autowired
     private ElasticsearchRestTemplate elasticsearchRestTemplate;
+    @Autowired
+    private ListService listService;
+    @Autowired
+    private SearchService searchService;
+    @Autowired
+    private TrySearchService trySearchService;
 
     /**
      * 创建索引和类型映射
@@ -27,9 +33,6 @@ public class ListController {
         elasticsearchRestTemplate.putMapping(Goods.class);
         return Result.ok();
     }
-
-    @Autowired
-    private ListService listService;
 
     /**
      * 商品的上架
@@ -50,16 +53,12 @@ public class ListController {
 
     /**
      * 热度值自增
-     *
      * @param skuId
      */
     @GetMapping("/addScore/{skuId}")
     public void addScore(@PathVariable("skuId") Long skuId) {
         listService.addScore(skuId);
     }
-
-    @Autowired
-    private SearchService searchService;
 
     /**
      * 商品的搜索
@@ -71,10 +70,7 @@ public class ListController {
         return searchService.search(SearchMap);
     }
 
-    @Autowired
-    private TrySearchService trySearchService;
-
-//    自测---Todo
+    //    自测---Todo
     @GetMapping("/searchs")
     public Map<String, Object> searchs(@RequestParam Map<String, String> searchMap) {
         return trySearchService.searchs(searchMap);

@@ -23,7 +23,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Service
 public class ItemServiceImpl implements ItemService {
 
-//    @Autowired
+    //    @Autowired
     @Resource
     private ProductFeign productFeign;
 
@@ -32,7 +32,6 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 获取商品详情的信息
-     *
      * @param skuId
      * @return
      */
@@ -71,7 +70,7 @@ public class ItemServiceImpl implements ItemService {
 
             BaseCategoryView baseCategoryView = productFeign.getBaseCategoryView(skuInfo.getCategory3Id());
             map.put("baseCategoryView", baseCategoryView);
-        },threadPoolExecutor);
+        }, threadPoolExecutor);
 
 
         // 获取SkuImag图片列表
@@ -83,7 +82,7 @@ public class ItemServiceImpl implements ItemService {
 
             List<SkuImage> skuImageList = productFeign.getSkuImageList(skuInfo.getId());
             map.put("skuImageList", skuImageList);
-        },threadPoolExecutor);
+        }, threadPoolExecutor);
 
         // 获取SKU的价格信息
         CompletableFuture<Void> future4 = future1.thenAcceptAsync((skuInfo) -> {
@@ -94,7 +93,7 @@ public class ItemServiceImpl implements ItemService {
 
             BigDecimal skuInfoPrice = productFeign.getSkuInfoPrice(skuInfo.getId());
             map.put("skuInfoPrice", skuInfoPrice);
-        },threadPoolExecutor);
+        }, threadPoolExecutor);
 
 
         // 获取SkuSaleAttr销售属性和属性值信息, 标记所属哪一列SKU
@@ -106,7 +105,7 @@ public class ItemServiceImpl implements ItemService {
 
             List<SpuSaleAttr> spuSaleAttrList = productFeign.getSpuSaleAttrBySpuIdBySkuId(skuInfo.getSpuId(), skuInfo.getId());
             map.put("spuSaleAttrList", spuSaleAttrList);
-        },threadPoolExecutor);
+        }, threadPoolExecutor);
 
 
         // 根据spuId查询skuSaleAttrValueKeys键值对

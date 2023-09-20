@@ -16,7 +16,6 @@ public interface SkuSaleAttrValueMapper extends BaseMapper<SkuSaleAttrValue> {
 
     /**
      * 根据spu的id查询sku的销售属性键值对
-     *
      * @param spuId
      * @return
      */

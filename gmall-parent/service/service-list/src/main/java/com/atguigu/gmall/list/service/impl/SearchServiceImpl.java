@@ -42,7 +42,6 @@ public class SearchServiceImpl implements SearchService {
 
     /**
      * 商品搜索
-     *
      * @param searchData
      * @return
      */
@@ -70,7 +69,6 @@ public class SearchServiceImpl implements SearchService {
 
     /**
      * 拼接查询条件
-     *
      * @param searchData
      * @return
      */
@@ -184,7 +182,6 @@ public class SearchServiceImpl implements SearchService {
 
     /**
      * 页码的数据处理
-     *
      * @param searchData
      */
     private Integer getPage(Map<String, String> searchData) {
@@ -199,7 +196,6 @@ public class SearchServiceImpl implements SearchService {
 
     /**
      * 解析结果
-     *
      * @param searchResponse
      */
     private Map<String, Object> getSearchResult(SearchResponse searchResponse) {
@@ -249,7 +245,7 @@ public class SearchServiceImpl implements SearchService {
         // 保存解析过的品牌的数据
         result.put("trademarkResultList", trademarResult);
 
-        //获取平台属性的聚合结果
+        // 获取平台属性的聚合结果
         List<SearchResponseAttrVo> baseAttrResult = getBaseAttrResult(aggregationsMap);
         // 保存解析过的平台的数据
         result.put("baseAttrResultList", baseAttrResult);
@@ -260,7 +256,6 @@ public class SearchServiceImpl implements SearchService {
 
     /**
      * 获取平台属性的聚合结果
-     *
      * @param aggregationsMap
      */
     private List<SearchResponseAttrVo> getBaseAttrResult(Map<String, Aggregation> aggregationsMap) {
@@ -303,7 +298,6 @@ public class SearchServiceImpl implements SearchService {
 
     /**
      * 获取品牌的聚合结果
-     *
      * @param aggregationsMap
      * @return
      */

@@ -14,6 +14,6 @@ public class GmallAuthRequestInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
         String token = AdminJwtUtil.adminJwt();
-        requestTemplate.header("Authorization", "bearer" + token);
+        requestTemplate.header("Authorization", "bearer " + token);
     }
 }

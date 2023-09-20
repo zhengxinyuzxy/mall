@@ -43,17 +43,15 @@
 .mycomment .service .left .remark {
     list-style-type: none;
 }
+
 .mycomment .service .left .remark li {
     float: left;
     margin-right: 10px;
 }
+
 .mycomment .service .left .remark li span {
     display: block;
 }
-
-
-
-
 
 
 .mycomment .service .left img {
@@ -95,9 +93,11 @@
     font-size: 14px;
     margin-right: 20px;
 }
+
 .mycomment .service .stars ul li i {
     color: #c81623
 }
+
 .mycomment .goods {
     margin-top: 12px;
     background-color: #fff
@@ -151,9 +151,11 @@
     min-height: 100px;
     padding: 8px
 }
+
 .summary-wrap dl .sui-icon {
     color: #c81623
 }
+
 .summary-wrap dt,
 .summary-wrap dd {
     margin: 0;
@@ -335,19 +337,23 @@
     display: inline-block;
     line-height: 21px
 }
+
 .
-/* add */
+    /* add */
 .bottom-tool {
 
 }
+
 .bottom-tool .wordnumber {
     float: right;
     margin-right: 6%;
 }
+
 .image-upload {
     margin-left: 70px;
     margin-top: -20px;
 }
+
 .upimg {
     position: relative;
     width: 100px;
@@ -379,13 +385,16 @@
     display: inline-block;
     margin-right: 5px;
 }
+
 #showimg {
     float: left;
 }
+
 .upimg {
     float: left;
     cursor: pointer;
 }
+
 #showui li img.showimg {
     position: absolute;
     text-align: center;
@@ -426,6 +435,7 @@
     opacity: .6;
     cursor: no-drop !important;
 }
+
 /* comment star */
 .icon-tb-favor,
 .icon-tb-favorfill {

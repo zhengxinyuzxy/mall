@@ -23,10 +23,13 @@ public class ItemController {
 
     @Autowired
     private ItemFeign itemFeign;
+    @Autowired
+    private TemplateEngine templateEngine;
+    @Autowired
+    private ListFeign listFeign;
 
     /**
      * 商品详情页打开
-     *
      * @param skuId
      * @param model
      * @return
@@ -40,12 +43,8 @@ public class ItemController {
         return "item";
     }
 
-    @Autowired
-    private TemplateEngine templateEngine;
-
     /**
      * 生成静态模板页面
-     *
      * @param skuId
      * @return
      */
@@ -66,12 +65,8 @@ public class ItemController {
         return "success";
     }
 
-    @Autowired
-    private ListFeign listFeign;
-
     /**
      * 商品的搜索页面
-     *
      * @return
      */
     @GetMapping("/list")
@@ -105,7 +100,6 @@ public class ItemController {
 
     /**
      * 获取URL
-     *
      * @param searchData
      */
     private String getUrl(Map<String, String> searchData) {

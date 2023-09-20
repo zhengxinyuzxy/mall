@@ -15,7 +15,6 @@ public interface SpuSaleAttrMapper extends BaseMapper<SpuSaleAttr> {
 
     /**
      * 根据spuId查询SpuSaleAttr所有的属性和值列表
-     *
      * @param spuId
      * @return
      */
@@ -23,7 +22,6 @@ public interface SpuSaleAttrMapper extends BaseMapper<SpuSaleAttr> {
 
     /**
      * 根据spuId, skuId查询销售属性和属性值, 标识唯一的选中商品
-     *
      * @param spuId
      * @param skuId
      * @return

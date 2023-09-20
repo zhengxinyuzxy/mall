@@ -86,13 +86,14 @@ public class OrderInfo extends BaseEntity {
 
     @TableField(exist = false)
     private String wareId;
+
     // 计算总价格
-    public void sumTotalAmount(){
-        BigDecimal totalAmount=new BigDecimal("0");
+    public void sumTotalAmount() {
+        BigDecimal totalAmount = new BigDecimal("0");
         for (OrderDetail orderDetail : orderDetailList) {
-            totalAmount= totalAmount.add(orderDetail.getOrderPrice().multiply(new BigDecimal(orderDetail.getSkuNum())));
+            totalAmount = totalAmount.add(orderDetail.getOrderPrice().multiply(new BigDecimal(orderDetail.getSkuNum())));
         }
-        this.totalAmount=  totalAmount;
+        this.totalAmount = totalAmount;
     }
 
 }

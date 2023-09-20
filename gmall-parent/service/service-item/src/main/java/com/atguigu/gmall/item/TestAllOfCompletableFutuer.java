@@ -66,7 +66,7 @@ public class TestAllOfCompletableFutuer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("任务一：结束"+ Thread.currentThread().getName());
+            System.out.println("任务一：结束" + Thread.currentThread().getName());
         });
         CompletableFuture<Void> future2 = CompletableFuture.runAsync(() -> {
             System.out.println("任务二：开始" + Thread.currentThread().getName());
@@ -75,7 +75,7 @@ public class TestAllOfCompletableFutuer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("任务二：结束"+ Thread.currentThread().getName());
+            System.out.println("任务二：结束" + Thread.currentThread().getName());
         });
 
         CompletableFuture<Void> future3 = CompletableFuture.runAsync(() -> {
@@ -85,7 +85,7 @@ public class TestAllOfCompletableFutuer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("任务三：结束"+ Thread.currentThread().getName());
+            System.out.println("任务三：结束" + Thread.currentThread().getName());
         });
 
         CompletableFuture<Void> future4 = CompletableFuture.runAsync(() -> {
@@ -95,7 +95,7 @@ public class TestAllOfCompletableFutuer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("任务四：结束"+ Thread.currentThread().getName());
+            System.out.println("任务四：结束" + Thread.currentThread().getName());
         });
 
         CompletableFuture<Void> future5 = CompletableFuture.runAsync(() -> {
@@ -105,9 +105,9 @@ public class TestAllOfCompletableFutuer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("任务五：结束"+ Thread.currentThread().getName());
+            System.out.println("任务五：结束" + Thread.currentThread().getName());
         });
-        CompletableFuture.anyOf(future1,future2 ,future3, future4, future5).join();
+        CompletableFuture.anyOf(future1, future2, future3, future4, future5).join();
         System.out.println("任务完成");
 
     }

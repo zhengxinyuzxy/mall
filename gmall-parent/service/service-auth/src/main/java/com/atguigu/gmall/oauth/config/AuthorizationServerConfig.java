@@ -28,12 +28,6 @@ import java.security.KeyPair;
 @Configuration
 @EnableAuthorizationServer
 class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-    //数据源，用于从数据库获取数据进行认证操作
-    @Autowired
-    private DataSource dataSource;
-    //jwt令牌转换器
-    @Autowired
-    private JwtAccessTokenConverter jwtAccessTokenConverter;
     /**
      * 用户自定义实现的登录校验流程
      */
@@ -44,9 +38,17 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
      */
     @Autowired
     AuthenticationManager authenticationManager;
-    //令牌持久化存储接口
+    // 令牌持久化存储接口
     @Autowired
     TokenStore tokenStore;
+    // 数据源，用于从数据库获取数据进行认证操作
+    @Autowired
+    private DataSource dataSource;
+    // jwt令牌转换器
+    @Autowired
+    private JwtAccessTokenConverter jwtAccessTokenConverter;
+    @Resource(name = "keyProp")
+    private KeyProperties keyProperties;
 
     /***
      * 客户端信息配置
@@ -55,7 +57,7 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        //以数据源的方式,自动从数据库加载oauth的配置
+        // 以数据源的方式,自动从数据库加载oauth的配置
         clients.jdbc(dataSource).clients(clientDetails());
     }
 
@@ -67,13 +69,14 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.accessTokenConverter(jwtAccessTokenConverter)
-                .authenticationManager(authenticationManager)//认证管理器
-                .tokenStore(tokenStore)                       //令牌存储
-                .userDetailsService(userDetailsService);     //用户信息service
+                .authenticationManager(authenticationManager)// 认证管理器
+                .tokenStore(tokenStore)                       // 令牌存储
+                .userDetailsService(userDetailsService);     // 用户信息service
     }
 
     /***
      * 授权服务器的安全配置
+     * permitAll()的作用，哪些请求要验证，哪些请求不验证。
      * @param oauthServer
      * @throws Exception
      */
@@ -85,17 +88,13 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
                 .checkTokenAccess("isAuthenticated()");
     }
 
-
-    //读取密钥的配置
+    // 读取密钥的配置
     @Bean("keyProp")
-    public KeyProperties keyProperties(){
+    public KeyProperties keyProperties() {
         return new KeyProperties();
     }
 
-    @Resource(name = "keyProp")
-    private KeyProperties keyProperties;
-
-    //客户端配置
+    // 客户端配置
     @Bean
     public ClientDetailsService clientDetails() {
         return new JdbcClientDetailsService(dataSource);
@@ -122,7 +121,7 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
                         keyProperties.getKeyStore().getAlias(),
                         keyProperties.getKeyStore().getPassword().toCharArray());
         converter.setKeyPair(keyPair);
-        //配置自定义的CustomUserAuthenticationConverter
+        // 配置自定义的CustomUserAuthenticationConverter
         DefaultAccessTokenConverter accessTokenConverter = (DefaultAccessTokenConverter) converter.getAccessTokenConverter();
         accessTokenConverter.setUserTokenConverter(customUserAuthenticationConverter);
         return converter;

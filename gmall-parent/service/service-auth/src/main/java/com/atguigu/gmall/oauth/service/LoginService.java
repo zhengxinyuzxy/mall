@@ -11,4 +11,12 @@ public interface LoginService {
      * @return
      */
     public AuthToken login(String username, String password);
+
+    /**
+     * 测试-TODO
+     * @param username
+     * @param password
+     * @return
+     */
+    public AuthToken loginTest(String username, String password);
 }

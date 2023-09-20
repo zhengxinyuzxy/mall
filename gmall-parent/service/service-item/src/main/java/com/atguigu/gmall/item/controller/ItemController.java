@@ -17,7 +17,7 @@ import java.util.Map;
 //@Api(value = "Item-Controller", tags = "商品详情微服务的外部controller")
 public class ItemController {
 
-//    @Autowired
+    //    @Autowired
     @Resource
     private ItemService itemService;
 

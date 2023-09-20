@@ -18,29 +18,24 @@ import org.springframework.util.StringUtils;
 @ConfigurationProperties("spring.redis")
 public class RedissonConfig {
 
+    private static String ADDRESS_PREFIX = "redis://";
     private String host;
-
     private String addresses;
-
     private String password;
-
     private String port;
-
     private int timeout = 3000;
     private int connectionPoolSize = 64;
-    private int connectionMinimumIdleSize=10;
+    private int connectionMinimumIdleSize = 10;
     private int pingConnectionInterval = 60000;
-    private static String ADDRESS_PREFIX = "redis://";
 
     /**
      * 自动装配
-     *
      */
     @Bean
     RedissonClient redissonSingle() {
         Config config = new Config();
 
-        if(StringUtils.isEmpty(host)){
+        if (StringUtils.isEmpty(host)) {
             throw new RuntimeException("host is  empty");
         }
         SingleServerConfig serverConfig = config.useSingleServer()
@@ -49,7 +44,7 @@ public class RedissonConfig {
                 .setPingConnectionInterval(pingConnectionInterval)
                 .setConnectionPoolSize(this.connectionPoolSize)
                 .setConnectionMinimumIdleSize(this.connectionMinimumIdleSize);
-        if(!StringUtils.isEmpty(this.password)) {
+        if (!StringUtils.isEmpty(this.password)) {
             serverConfig.setPassword(this.password);
         }
         return Redisson.create(config);

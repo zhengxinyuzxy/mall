@@ -6,10 +6,10 @@ public enum PaymentStatus {
     PAY_FAIL("支付失败"),
     ClOSED("已关闭");
 
-    private String name ;
+    private String name;
 
     PaymentStatus(String name) {
-        this.name=name;
+        this.name = name;
     }
 
 }

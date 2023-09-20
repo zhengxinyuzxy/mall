@@ -2,7 +2,6 @@ package com.atguigu.gmall.common.constant;
 
 /**
  * Redis常量配置类
- *
  */
 public class ProductConst {
 

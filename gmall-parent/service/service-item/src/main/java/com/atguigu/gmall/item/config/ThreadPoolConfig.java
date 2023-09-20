@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class ThreadPoolConfig {
 
     @Bean
-    public ThreadPoolExecutor threadPoolExecutor(){
+    public ThreadPoolExecutor threadPoolExecutor() {
         /**
          * 核心线程数
          * 拥有最多线程数
