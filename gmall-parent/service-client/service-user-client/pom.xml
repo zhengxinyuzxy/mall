@@ -12,9 +12,6 @@
     <artifactId>service-user-client</artifactId>
     <description>用户微服务的feign接口</description>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+
 
 </project>

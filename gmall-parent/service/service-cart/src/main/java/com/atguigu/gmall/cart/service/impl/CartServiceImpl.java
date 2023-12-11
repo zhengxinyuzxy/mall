@@ -1,5 +1,6 @@
 package com.atguigu.gmall.cart.service.impl;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.atguigu.gmall.cart.mapper.CartInfoMapper;
 import com.atguigu.gmall.cart.service.CartService;
 import com.atguigu.gmall.cart.util.GmallThreadLocalUtils;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -168,20 +169,26 @@ public class CartServiceImpl implements CartService {
                 new LambdaQueryWrapper<CartInfo>()
                         .eq(CartInfo::getUserId, userName)
                         .eq(CartInfo::getIsChecked, 1));
+        // 判断是否为空
+        if (cartInfoList == null || cartInfoList.isEmpty()) {
+            return null;
+        }
+        // TODO
         result.put("cartInfoList", cartInfoList);
         // 计算金额和数量
         AtomicInteger totolNum = new AtomicInteger(0);
         AtomicDouble totolPrice = new AtomicDouble(0);
-        Stream<CartInfo> cartInfoStream = cartInfoList.stream().map(cartInfo -> {
+        List<CartInfo> collect = cartInfoList.stream().map(cartInfo -> {
             Integer skuNum = cartInfo.getSkuNum();
             totolNum.addAndGet(skuNum);
             BigDecimal skuInfoPrice = productFeign.getSkuInfoPrice(cartInfo.getSkuId());
             totolPrice.addAndGet(skuNum * skuInfoPrice.doubleValue());
             return cartInfo;
-        });
+        }).collect(Collectors.toList());
         // 包装返回数据
         result.put("totolNum", totolNum);
         result.put("totolPrice", totolPrice);
+        result.put("cartInfoList", JSONObject.toJSONString(collect));
         // 返回数据
         return result;
     }

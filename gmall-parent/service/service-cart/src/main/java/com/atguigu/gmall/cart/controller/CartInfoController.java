@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/cart")
@@ -77,6 +78,15 @@ public class CartInfoController {
     @GetMapping(value = "/getOrderConfirm")
     public Result getOrderConfirm() {
         return Result.ok(cartService.getOrderConfirm());
+    }
+
+    /**
+     * 下单使用的查询接口
+     * @return
+     */
+    @GetMapping(value = "/getAddOrderInfo")
+    public Map<String, Object> getAddOrderInfo() {
+        return cartService.getOrderConfirm();
     }
 
 }

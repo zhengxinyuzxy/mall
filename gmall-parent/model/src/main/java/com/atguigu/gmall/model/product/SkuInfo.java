@@ -54,5 +54,8 @@ public class SkuInfo extends BaseEntity {
     @ApiModelProperty(value = "是否销售（1：是 0：否）")
     @TableField("is_sale")
     private Integer isSale;
+    @TableField("stock")
+    private Long stock;
+
 }
 

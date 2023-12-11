@@ -24,9 +24,16 @@
         <module>service-order</module>
         <module>service-mq</module>
         <module>service-pay</module>
+        <module>service-payment</module>
         <module>service-activity</module>
         <module>service-auth</module>
     </modules>
+
+    <!-- <properties> -->
+    <!--     <maven.compiler.source>11</maven.compiler.source> -->
+    <!--     <maven.compiler.target>11</maven.compiler.target> -->
+    <!--     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
+    <!-- </properties> -->
 
     <dependencies>
         <!--依赖服务的工具类-->
@@ -92,5 +99,23 @@
         </dependency>
 
     </dependencies>
+
+    <!-- <build>
+        <finalName>service-product</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build> -->
 
 </project>

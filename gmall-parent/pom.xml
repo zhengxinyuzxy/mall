@@ -33,17 +33,22 @@
     <!--添加依赖-->
     <!--定义jar包的版本号-->
     <properties>
-        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <java.version>1.8</java.version>
+        <java.version>8</java.version>
+        <!-- <maven.compiler.source>11</maven.compiler.source> -->
+        <!-- <maven.compiler.target>11</maven.compiler.target> -->
+        <!-- <maven.compiler.encoding>UTF-8</maven.compiler.encoding> -->
+        <!-- <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
+
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
         <springframework-alibaba.version>0.2.2.RELEASE</springframework-alibaba.version>
-        <gmall.version>1.0</gmall.version>
+
+        <!--无用标签 <gmall.version>1.0</gmall.version> -->
         <mybatis-plus.version>3.1.0</mybatis-plus.version>
         <mysql.version>5.1.46</mysql.version>
         <knife4j.version>2.0.9</knife4j.version>
         <springdoc-openapi-ui.version>1.6.9</springdoc-openapi-ui.version>
         <fastdfs.version>1.27.0.0</fastdfs.version>
-        <lombok.version>1.18.10</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
     </properties>
     <!--配置dependencyManagement锁定依赖的版本 并不是实际的依赖。-->
     <dependencyManagement>

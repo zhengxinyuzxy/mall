@@ -29,6 +29,7 @@ public class ListServiceImpl implements ListService {
 
     @Autowired
     private GoodsDao goodsDao;
+
     @Autowired
     private RedisTemplate redisTemplate;
 

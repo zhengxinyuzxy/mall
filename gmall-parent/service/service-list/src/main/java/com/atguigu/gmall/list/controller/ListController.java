@@ -5,6 +5,7 @@ import com.atguigu.gmall.list.service.ListService;
 import com.atguigu.gmall.list.service.SearchService;
 import com.atguigu.gmall.list.service.TrySearchService;
 import com.atguigu.gmall.model.list.Goods;
+import com.atguigu.gmall.model.product.SkuInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +40,7 @@ public class ListController {
      */
     @GetMapping("/upper/{skuId}")
     public void upper(@PathVariable("skuId") Long skuId) {
+        SkuInfo skuInfo = new SkuInfo();
         listService.upper(skuId);
     }
 
@@ -50,6 +52,7 @@ public class ListController {
         listService.down(skuId);
 
     }
+
 
     /**
      * 热度值自增

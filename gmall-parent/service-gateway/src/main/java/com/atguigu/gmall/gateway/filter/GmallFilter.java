@@ -20,6 +20,7 @@ import reactor.core.publisher.Mono;
  */
 @Component
 public class GmallFilter implements GlobalFilter, Ordered {
+
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 

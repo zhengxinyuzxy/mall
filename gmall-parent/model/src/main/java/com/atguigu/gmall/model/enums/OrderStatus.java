@@ -7,6 +7,7 @@ public enum OrderStatus {
     DELEVERED("已发货"),
     CANCLE("主动取消"),
     CLOSED("已关闭"),
+    TIME_OUT("超时未支付"),
     FINISHED("已完结"),
     SPLIT("订单已拆分");
 
